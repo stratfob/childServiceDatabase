@@ -8,6 +8,16 @@
 	
 </head>
 <body>
+
+	<?php  
+		if($this->session->logged_in == false){
+			redirect(site_url('Login/index'));
+		}
+		else{
+			echo "Logged in as " . $this->session->username;
+		}
+	?>
+	<a href= "<?php echo site_url('pages/logout'); ?>"> Log Out </a>
 	<h1>Test</h1>
 	<div class="chart"></div>
 	

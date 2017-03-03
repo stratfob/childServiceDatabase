@@ -23,4 +23,8 @@ class Request extends CI_Controller {
 				. $client['THING'] . "<br>"; 
 		endforeach;
 	}
+
+	public function submit(){
+		echo $this->model->newClient($_POST);;
+	}
 }

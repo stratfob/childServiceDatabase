@@ -43,4 +43,15 @@ class model extends CI_Model {
 		{
 			return $this->db->insert('users', $array);
 		}
+
+		public function newClient($array)
+		{
+			if($this->db->get_where('client',array('caseNumber' => $array['caseNumber']))->num_rows()>=1){
+				return "Case number already exists in database";
+			}
+			else{
+				$this->db->insert('client', $array);
+				return "Client created";
+			}
+		}
 }

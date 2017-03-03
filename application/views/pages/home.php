@@ -18,9 +18,11 @@
 		}
 	?>
 	<a href= "<?php echo site_url('pages/logout'); ?>"> Log Out </a>
-	<h1>Test</h1>
-	<div class="chart"></div>
-	
+	<h1>Home</h1>
+	<p>Create new client: 
+	<a href = "<?php echo site_url('newClient'); ?>"> New </a>
+	</p>
+
 	<?php 
 	echo "All entries in table 'test': <br>";
 	foreach ($testData as $exampleClient): 

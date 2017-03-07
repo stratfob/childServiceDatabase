@@ -11,16 +11,16 @@ class model extends CI_Model {
 		{
 			if ($ID === FALSE)
 			{
-                $query = $this->db->get('test');
+                $query = $this->db->get('client');
                 return $query->result_array();
 			}
-			$query = $this->db->get_where('test', array('ID' => $ID));
+			$query = $this->db->get_where('client', array('ID' => $ID));
 			return $query->row_array();
 		}
 		
 		public function search($array)
 		{
-			$query = $this->db->get_where('test', $array);
+			$query = $this->db->get_where('client', $array);
 			return $query->result_array();
 		}
 		

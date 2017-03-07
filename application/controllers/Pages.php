@@ -22,7 +22,6 @@ class Pages extends CI_Controller {
         		// send data to view
                 $data['title'] = ucfirst($page); // Capitalize the first letter
         	$data['testData'] = $this->model->get_test();
-        	$data['singleData'] = $this->model->get_test(1);
         		
         		// load the view
                 $this->load->view('pages/'.$page, $data);

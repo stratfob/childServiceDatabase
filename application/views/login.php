@@ -4,7 +4,7 @@
 	<title>Login</title>
 	<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 	<script type="text/javascript">google.load("jquery", "1.3.2");</script>
-	
+	<link rel="stylesheet" type= "text/css" href = "<?php echo base_url(); ?>css/test.css">
 </head>
 <body>
 	<h1>Login</h1>
@@ -13,11 +13,9 @@
 		Username: <input type="text" name="username"><br>
 		Password: <input type="password" name="password"><br>
 	</form> 
-	<button onclick="formFunction()">Try it</button>
+	<button class="button buttonLog" onclick="formFunction()">Enter >></button>
 	</br>
-	<a href='<?php echo site_url ('Login/newUser'); ?>'> Create new user </a>
 	<p id="result"></p>
-	
 	
 	<script>
 		function formFunction() {
@@ -33,7 +31,7 @@
 				success: function(data) {
 					document.getElementById("result").innerHTML = data;
 					if(data=="Logging in..."){
-						document.location.href = '<?php echo site_url('home'); ?>';
+						document.location.href = '<?php echo site_url('HomePage'); ?>';
 					}
 				}
 			});

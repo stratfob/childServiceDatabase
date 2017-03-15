@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title><?php echo $title ?></title>
-	<link rel = "stylesheet" type = "text/css" href = "<?php echo base_url(); ?>css/test.css">
+	<title>Search CARI</title>
+	<link rel = "stylesheet" type = "text/css" href = "<?php echo base_url(); ?>css/homecss.css">
 	<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 	<script type="text/javascript">google.load("jquery", "1.3.2");</script>
 	
 </head>
 <body>
-
+	
 	<?php  
 		if($this->session->logged_in == false){
 			redirect(site_url('Login/index'));
@@ -17,11 +17,16 @@
 			echo "Logged in as " . $this->session->username;
 		}
 	?>
-	<a href= "<?php echo site_url('pages/logout'); ?>"> Log Out </a>
-	<h1>Home</h1>
-	<p>Create new client: 
-	<a href = "<?php echo site_url('newClient'); ?>"> New </a>
-	</p>
+	<div id ="navigation">
+		<h1>Search Page</h1>
+		<a href= "<?php echo site_url('pages/logout'); ?>"> Log Out </a>
+		<p>
+		<a href= "<?php echo site_url('homePage'); ?>"> Home Page </a></p> 
+		<p><a href = "<?php echo site_url('newClient'); ?>"> New Client</a>
+		</p>
+		<p>
+		<a href= "<?php echo site_url('stats'); ?>"> Statistics </a></p>
+	</div>
 
 	<?php 
 	echo "All entries in table 'client': <br>";
@@ -39,30 +44,41 @@
 	?>
 	
 	<form id="testForm">
-		ID: <input type="text" name="caseNumber"><br>
-		First Name: <input type="text" name="firstName"><br>
-		Last Name: <input type="text" name="lastName"><br>
-		Relational Index: <input type="text" name="relationalIndex"><br>
-		Age: <input type="text" name="age"><br>
-		Referrer Name: <input type="text" name="referrerName"><br>
-		Referrer Agency: <input type="text" name="referrerAgency"><br>
-		Father Name: <input type="text" name="fatherName"><br>
-		Mother Name: <input type="text" name="motherName"><br>
-		Referral reason: <input type="text" name="referralReason"><br>
-		CSA outcome: <input type="text" name="CSAoutcome"><br>
-		Nature Of Abuse: <input type="text" name="natureOfAbuse"><br>
-		Continuous Or Once Off: <input type="text" name="continuousOrOnceOff"><br>
-		Alleged Abuser: <input type="text" name="allegedAbuser"><br>
-		One or Multiple Abusers: <input type="text" name="oneOrMultipleAbusers"><br>
-		Abuser Relation To Victim: <input type="text" name="abuserRelationToVictim"><br>
-		Peer To Peer Or Adult: <input type="text" name="peerToPeerOrAdult"><br>
-		Location: <input type="text" name="location"><br>
-		Waiting List Start Date: <input type="text" name="waitingListStartDate"><br>
-		Therapy Start Date: <input type="text" name="therapyStartDate"><br>
-		Returned: <input type="text" name="returned"><br>
-		Child In Care: <input type="text" name="childInCare"><br><br>
+		<div class= "container">
+			<div id="person">
+				ID: <input type="text" name="caseNumber"><br>
+				First Name: <input type="text" name="firstName"><br>
+				Last Name: <input type="text" name="lastName"><br>
+				Relational Index: <input type="text" name="relationalIndex"><br>
+				Age: <input type="text" name="age"><br>
+				Referrer Name: <input type="text" name="referrerName"><br>
+				Referrer Agency: <input type="text" name="referrerAgency"><br>
+				Father Name: <input type="text" name="fatherName"><br>
+				Mother Name: <input type="text" name="motherName"><br>
+				
+			</div>
+			<div id="case">
+				Referral reason: <input type="text" name="referralReason"><br>
+				CSA outcome: <input type="text" name="CSAoutcome"><br>
+				Nature Of Abuse: <input type="text" name="natureOfAbuse"><br>
+				Continuous Or Once Off: <input type="text" name="continuousOrOnceOff"><br>
+				Alleged Abuser: <input type="text" name="allegedAbuser"><br>
+				One or Multiple Abusers: <input type="text" name="oneOrMultipleAbusers"><br>
+				Abuser Relation To Victim: <input type="text" name="abuserRelationToVictim"><br>
+				Peer To Peer Or Adult: <input type="text" name="peerToPeerOrAdult"><br>
+				Location: <input type="text" name="location"><br>
+				
+			</div>
+			<div id="therapy">
+				Waiting List Start Date: <input type="text" name="waitingListStartDate"><br>
+				Therapy Start Date: <input type="text" name="therapyStartDate"><br>
+				Returned: <input type="text" name="returned"><br>
+				Child In Care: <input type="text" name="childInCare"><br><br>
+				<button class="button" onclick="formFunction()">Search >></button>
+			</div>
+		</div>
 	</form> 
-	<button onclick="formFunction()">Try it</button>
+	
 	
 	<p id="result"></p>
 	

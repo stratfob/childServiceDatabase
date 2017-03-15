@@ -1,4 +1,66 @@
+/*Controls the login and homePage layout*/
 body { 
-   background:#000; 
+   background:#339966; 
    color:#FFF; 
+   text-align: center;
+   padding-right:1.5cm;
+   padding-top: 3cm;
+   line-height: 200%;
+   font-family: "Lucida Console", Arial, monospace;
+}
+h1{
+	color: #ffcc66;
+	font-size:64px;
+	text-shadow: 3px 2px black;	
+	font-family: Arial, Times, monospace;
+}
+form{
+	margin-top: 180px;
+	color: #000;
+	font-size: 24px;
+}
+
+#nav{
+	text-align:left;
+	padding-left: 5.5cm;
+	padding-top: 2cm;
+	
+}
+#navigation{
+	text-align:left;
+	padding-top: none;
+}
+.button{
+	background-color:  #4CAF50;
+    border: 2px solid #000;
+    color: black;
+    padding: 12px 36px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+	font-family: "Lucida Console", Arial, monospace;
+    margin-top: 50px;
+    cursor: pointer;
+	-webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+	
+}
+
+.buttonLog:hover {
+    background-color: #003300;
+    color: #ffcc66;
+	border: 2px solid #ffcc66;
+}
+.buttonHome{
+	float: left;
+	margin-top: 100px;
+	margin-right:50px;
+}
+.buttonHome:hover {
+	float:left;
+	margin-top: 100px;
+	margin-right:50px;
+    background-color: #003300;
+    color: #ffcc66;
+	border: 2px solid #ffcc66;
 }

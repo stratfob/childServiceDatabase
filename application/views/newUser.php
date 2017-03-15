@@ -4,7 +4,7 @@
 	<title>New User</title>
 	<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 	<script type="text/javascript">google.load("jquery", "1.3.2");</script>
-	
+	<link rel="stylesheet" type= "text/css" href = "<?php echo base_url(); ?>css/test.css">
 </head>
 <body>
 	<h1>New User</h1>
@@ -13,7 +13,7 @@
 		Username: <input type="text" name="username"><br>
 		Password: <input type="password" name="password"><br>
 	</form> 
-	<button onclick="formFunction()">Create</button>
+	<button class="button buttonLog" onclick="formFunction()">Create >></button>
 	
 	<p id="result"></p>
 	

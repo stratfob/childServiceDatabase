@@ -1,0 +1,78 @@
+/*Controls the home, newClient and statistics page*/
+body{
+	background:#339966; 
+    color:#FFF; 
+    line-height: 200%;
+    font-family: "Lucida Console", Arial, monospace;
+	font-size: 16.5px;
+}
+h1{
+	color: #ffcc66;
+	text-shadow: 3px 2px black;	
+	font-family: Arial, Times, monospace;
+}
+form{
+	color: #000;
+	padding-right: 3cm;
+	padding-top: 0.5cm;
+	
+}
+select{
+	background-color: #FFFF;opacity: 0.8;
+}
+input{
+	background-color: #FFFF;opacity: 0.8;
+}
+textarea{
+	background-color:   #FFFF;opacity: 0.8;
+}
+#navigation{
+	text-align:left;	
+}
+#nav{
+	padding-top: 20px;
+	text-align:left;
+	float: left;
+}
+
+#person{
+	text-align:right;
+	float: left;
+}
+#case{
+	text-align:right;
+	float:center;
+}
+#therapy{
+	text-align:right;
+	float:right;
+}
+
+.button{
+	background-color:  #4CAF50;
+    border: 3px solid #000;
+    color: black;
+    padding: 22px 32px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+	font-family: "Lucida Console", Arial, monospace;
+    margin: 6px 2px;
+    cursor: pointer;
+	clear: both;
+	-webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+.button:hover{
+	background-color: #003300;
+    color: #ffcc66;
+	border: 3px solid #ffcc66;
+}
+.container {
+  display: flex;
+ 
+}
+.container > div {
+  flex: 1; /*grow*/
+   margin: 5px 10px;
+}

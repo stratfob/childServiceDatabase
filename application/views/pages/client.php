@@ -480,3 +480,20 @@ class Request extends CI_Controller {
 
 </body>
 </html>
+
+
+/////////////////////////////////////////
+<?php 
+	echo "All entries in table 'client': <br>";
+	foreach ($testData as $exampleClient): 
+        echo "ID: " . $exampleClient['caseNumber'] .  " Relational Index: " . $exampleClient['relationalIndex'] . " First Name: " . $exampleClient['firstName'] . " Last Name: " 
+			. $exampleClient['lastName'] . " Age: " . $exampleClient['age'] . " Referrer Name: " . $exampleClient['referrerName'] . " Referrer Agency: " . $exampleClient['referrerAgency'] 
+			. " Father Name: " . $exampleClient['fatherName']. " Mother Name: " . $exampleClient['motherName'] . " Referral Reason: " . $exampleClient['referralReason'] 
+			." CSA Outcome: " . $exampleClient['CSAoutcome'] ." Nature Of Abuse: " . $exampleClient['natureOfAbuse'] ." Continuous or Once Off: " . $exampleClient['continuousOrOnceOff'] 
+			." Alleged Abuser: " . $exampleClient['allegedAbuser'] ." One or Multiple Abusers : " . $exampleClient['oneOrMultipleAbusers'] ." Abuser relation To Victim : " 
+			. $exampleClient['abuserRelationToVictim']." Peer To Peer or Adult : " . $exampleClient['peerToPeerOrAdult'] ." Location: " . $exampleClient['location']
+			." Waiting List Start Date: " . $exampleClient['waitingListStartDate']." Therapy Start Date: " . $exampleClient['therapyStartDate']." Returned: " . $exampleClient['returned'].
+			" Child In Care: " . $exampleClient['childInCare']. "<br>"; 
+	endforeach;
+	
+	?>

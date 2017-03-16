@@ -30,6 +30,13 @@ class Request extends CI_Controller {
 		$therapyStartDate = $_POST['therapyStartDate'];
 		$returned = $_POST['returned'];
 		$childInCare = $_POST['childInCare'];
+		$adviceAppointmentReason = $_POST['adviceAppointmentReason'];
+		$professionalsForAdviceAppointment = $_POST['professionalsForAdviceAppointment'];
+		$otherTraumaOrIncident = $_POST['otherTraumaOrIncident'];
+		$childProtectionReportsMade = $_POST['childProtectionReportsMade'];
+		$linkedWithCourtAccompanimentServices = $_POST['linkedWithCourtAccompanimentServices'];
+		$dateFileShredded = $_POST['dateFileShredded'];
+	    $otherComment = $_POST['otherComment'];
 	
 		$array = [];
 		if($ID!=null) $array['caseNumber'] = $ID;
@@ -54,6 +61,14 @@ class Request extends CI_Controller {
 		if($therapyStartDate!=null) $array['therapyStartDate'] = $therapyStartDate;
 		if($returned!=null) $array['returned'] = $returned;
 		if($childInCare!=null) $array['childInCare'] = $childInCare;
+		if($adviceAppointmentReason!=null) $array['adviceAppointmentReason'] = $adviceAppointmentReason;
+		if($professionalsForAdviceAppointment!=null) $array['professionalsForAdviceAppointment'] = $professionalsForAdviceAppointment;
+		if($otherTraumaOrIncident!=null) $array['otherTraumaOrIncident'] = $otherTraumaOrIncident;
+		if($childProtectionReportsMade!=null) $array['childProtectionReportsMade'] = $childProtectionReportsMade;
+		if($linkedWithCourtAccompanimentServices!=null) $array['linkedWithCourtAccompanimentServices'] = $linkedWithCourtAccompanimentServices;
+		if($dateFileShredded!=null) $array['dateFileShredded'] = $dateFileShredded;
+		if($otherComment!=null) $array['otherComment'] = $otherComment;
+
 
 		
 		$result = $this->model->search($array);
@@ -64,8 +79,12 @@ class Request extends CI_Controller {
 			." Nature Of Abuse: " . $client['natureOfAbuse'] ." Continuous Or Once Off: " . $client['continuousOrOnceOff'] ." Alleged Abuser: " . $client['allegedAbuser'] 
 			." One Or Multiple Abusers: " . $client['oneOrMultipleAbusers'] ." Abuser Relation To Victim: " . $client['abuserRelationToVictim'] ." Peer To Peer Or Adult: " 
 			. $client['peerToPeerOrAdult'] ." Location: " . $client['location'] ." Waiting List Start Date: " . $client['waitingListStartDate']." Therapy Start Date: " . $client['therapyStartDate']
-			." Returned: " . $client['returned']." Child In Care: " . $client['childInCare']."<br>"; 
+			." Returned: " . $client['returned']." Child In Care: " . $client['childInCare'] ." Advice Appointment Reason: " . $client['adviceAppointmentReason']." professionalsForAdviceAppointment: " 
+			. $client['professionalsForAdviceAppointment'] ." Other Trauma Or Incident: " . $client['otherTraumaOrIncident'] ." Child Protection Reports Made: " . $client['childProtectionReportsMade']
+			." Linked With Court Accompaniment Services: " . $client['linkedWithCourtAccompanimentServices'] ." Date File Shredded: " . $client['dateFileShredded']
+			." Other Comment: " . $client['otherComment']."<br>"; 
 		endforeach;
+		
 	}
 	
 	public function submit(){

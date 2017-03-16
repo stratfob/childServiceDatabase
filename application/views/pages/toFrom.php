@@ -26,6 +26,7 @@
 	<p>Go to Search page: 
 	<a href = "<?php echo site_url('home'); ?>"> Search </a>
 	</p>
+	<p><a href= "<?php echo site_url('homePage'); ?>"> Home Page </a></p>
 	
 	
 	<?php 

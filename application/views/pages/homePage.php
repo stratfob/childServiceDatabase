@@ -23,6 +23,7 @@
 	<a href= "<?php echo site_url('newClient'); ?>" class="button buttonHome"> New Client </a>
 	<a href= "<?php echo site_url('home'); ?>" class="button buttonHome"> Search Page </a>
 	<a href= "<?php echo site_url('stats'); ?>" class="button buttonHome"> Statistics </a>
+	<a href= "<?php echo site_url('toFrom'); ?>" class="button buttonHome"> Ranges </a>
 	
 </div>
 </body>

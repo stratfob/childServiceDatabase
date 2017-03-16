@@ -39,6 +39,33 @@ class model extends CI_Model {
 			else return false;
 		}
 		
+		public function between($array)
+		{
+			
+			if($array==NULL){
+				echo "Hello <br>";
+				return false;
+			}
+			else{
+				echo $array['minvalueAge'];
+				echo $array['maxvalueAge'];	
+				//echo $array['minvalueID'];
+				//echo $array['maxvalueID'];				
+			}
+			
+			if ($array['maxvalueAge'] == -1){
+				$array['maxvalueAge'] = 100;
+			}
+			
+			$where = $array['age'] . " BETWEEN ".  $array['minvalueAge'] . " AND " . $array['maxvalueAge'] . " AND " . "caseNumber BETWEEN ".  $array['minvalueID'] . " AND " . $array['maxvalueID']
+			. " AND " . $array['relationalIndex'] . " BETWEEN ".  $array['minvalueIndex'] . " AND " . $array['maxvalueIndex'];
+			$query = $this->db->get_where('client',$where);
+			//$whereID = "caseNumber BETWEEN ".  $array['minvalueID'] . " AND " . $array['maxvalueID'];
+			//$query = $this->db->get_where('client',$whereID);
+			return $query->result_array();
+			
+		}
+		
 		public function newUser($array)
 		{
 			return $this->db->insert('users', $array);

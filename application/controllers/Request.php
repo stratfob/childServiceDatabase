@@ -92,7 +92,7 @@ class Request extends CI_Controller {
 	}
 	
 	public function betweenPlease(){
-		echo "hello <br>";
+		//echo "hello <br>";
 		$minvalue = $_POST['minvalueAge'];
 		$maxvalue = $_POST['maxvalueAge'];
 		$age = $_POST['age'];
@@ -127,17 +127,12 @@ class Request extends CI_Controller {
 		else $array['maxvalueIndex'] = 10000000;
 		if($Index!=null) $array['relationalIndex'] = $Index;
 		$result = $this->model->between($array);	
+		$count = 0;
 		foreach ($result as $client): 
 			echo "ID: " . $client['caseNumber'] . " First Name: " . $client['firstName'] . " Last Name: " 	. $client['lastName'] . " Relational Index: " 
-			. $client['relationalIndex'] . " Age: " . $client['age'] . " Referrer Name: " . $client['referrerName'] . " Referrer Agency: " . $client['referrerAgency'] 
-			. " Father Name: " . $client['fatherName'] . " Mother Name: " . $client['motherName'] . " Referral Reason: " . $client['referralReason'] . " CSA outcome: " . $client['CSAoutcome']
-			." Nature Of Abuse: " . $client['natureOfAbuse'] ." Continuous Or Once Off: " . $client['continuousOrOnceOff'] ." Alleged Abuser: " . $client['allegedAbuser'] 
-			." One Or Multiple Abusers: " . $client['oneOrMultipleAbusers'] ." Abuser Relation To Victim: " . $client['abuserRelationToVictim'] ." Peer To Peer Or Adult: " 
-			. $client['peerToPeerOrAdult'] ." Location: " . $client['location'] ." Waiting List Start Date: " . $client['waitingListStartDate']." Therapy Start Date: " . $client['therapyStartDate']
-			." Returned: " . $client['returned']." Child In Care: " . $client['childInCare'] ." Advice Appointment Reason: " . $client['adviceAppointmentReason']." professionalsForAdviceAppointment: " 
-			. $client['professionalsForAdviceAppointment'] ." Other Trauma Or Incident: " . $client['otherTraumaOrIncident'] ." Child Protection Reports Made: " . $client['childProtectionReportsMade']
-			." Linked With Court Accompaniment Services: " . $client['linkedWithCourtAccompanimentServices'] ." Date File Shredded: " . $client['dateFileShredded']
-			." Other Comment: " . $client['otherComment']."<br>"; 
+			. $client['relationalIndex'] ."<br>"; 
+			$count += 1;
 		endforeach;
+		echo "There are " . $count . " Clients in this range. <br>";
 	}
 }

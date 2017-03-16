@@ -43,12 +43,12 @@ class model extends CI_Model {
 		{
 			
 			if($array==NULL){
-				echo "Hello <br>";
+				//echo "Hello <br>";
 				return false;
 			}
 			else{
-				echo $array['minvalueAge'];
-				echo $array['maxvalueAge'];	
+				//echo $array['minvalueAge'];
+				//echo $array['maxvalueAge'];	
 				//echo $array['minvalueID'];
 				//echo $array['maxvalueID'];				
 			}

@@ -7,92 +7,85 @@ class Request extends CI_Controller {
 			$this->load->helper('url_helper');
 	}
 	
-	public function query(){
-		$ID = $_POST['caseNumber'];
-		$firstName = $_POST['firstName'];
-		$lastName = $_POST['lastName'];
-		$relationalIndex = $_POST['relationalIndex'];
-		$age = $_POST['age'];
-		$referrerName = $_POST['referrerName'];
-		$referrerAgency = $_POST['referrerAgency'];
-		$fatherName = $_POST['fatherName'];
-		$motherName = $_POST['motherName'];
-		$referralReason = $_POST['referralReason'];
-		$CSAoutcome = $_POST['CSAoutcome'];
-		$natureOfAbuse = $_POST['natureOfAbuse'];
-		$continuousOrOnceOff = $_POST['continuousOrOnceOff'];
-		$allegedAbuser = $_POST['allegedAbuser'];
-		$oneOrMultipleAbusers = $_POST['oneOrMultipleAbusers'];
-		$abuserRelationToVictim = $_POST['abuserRelationToVictim'];
-		$peerToPeerOrAdult = $_POST['peerToPeerOrAdult'];
-		$location = $_POST['location'];
-		$waitingListStartDate = $_POST['waitingListStartDate'];
-		$therapyStartDate = $_POST['therapyStartDate'];
-		$returned = $_POST['returned'];
-		$childInCare = $_POST['childInCare'];
-		$adviceAppointmentReason = $_POST['adviceAppointmentReason'];
-		$professionalsForAdviceAppointment = $_POST['professionalsForAdviceAppointment'];
-		$otherTraumaOrIncident = $_POST['otherTraumaOrIncident'];
-		$childProtectionReportsMade = $_POST['childProtectionReportsMade'];
-		$linkedWithCourtAccompanimentServices = $_POST['linkedWithCourtAccompanimentServices'];
-		$dateFileShredded = $_POST['dateFileShredded'];
-	    $otherComment = $_POST['otherComment'];
-	
+
+	public function query(){	
 		$array = [];
-		if($ID!=null) $array['caseNumber'] = $ID;
-		if($firstName!=null) $array['firstName'] = $firstName;
-		if($lastName!=null) $array['lastName'] = $lastName;
-		if($relationalIndex!=null) $array['relationalIndex'] = $relationalIndex;
-		if($age!=null) $array['age'] = $age;
-		if($referrerName!=null) $array['referrerName'] = $referrerName;
-		if($referrerAgency!=null) $array['referrerAgency'] = $referrerAgency;
-		if($fatherName!=null) $array['fatherName'] = $fatherName;
-		if($motherName!=null) $array['motherName'] = $motherName;
-		if($referralReason!=null) $array['referralReason'] = $referralReason;
-		if($CSAoutcome!=null) $array['CSAoutcome'] = $CSAoutcome;
-		if($natureOfAbuse!=null) $array['natureOfAbuse'] = $natureOfAbuse;
-		if($continuousOrOnceOff!=null) $array['continuousOrOnceOff'] = $continuousOrOnceOff;
-		if($allegedAbuser!=null) $array['allegedAbuser'] = $allegedAbuser;
-		if($oneOrMultipleAbusers!=null) $array['oneOrMultipleAbusers'] = $oneOrMultipleAbusers;
-		if($abuserRelationToVictim!=null) $array['abuserRelationToVictim'] = $abuserRelationToVictim;
-		if($peerToPeerOrAdult!=null) $array['peerToPeerOrAdult'] = $peerToPeerOrAdult;
-		if($location!=null) $array['location'] = $location;
-		if($waitingListStartDate!=null) $array['waitingListStartDate'] = $waitingListStartDate;
-		if($therapyStartDate!=null) $array['therapyStartDate'] = $therapyStartDate;
-		if($returned!=null) $array['returned'] = $returned;
-		if($childInCare!=null) $array['childInCare'] = $childInCare;
-		if($adviceAppointmentReason!=null) $array['adviceAppointmentReason'] = $adviceAppointmentReason;
-		if($professionalsForAdviceAppointment!=null) $array['professionalsForAdviceAppointment'] = $professionalsForAdviceAppointment;
-		if($otherTraumaOrIncident!=null) $array['otherTraumaOrIncident'] = $otherTraumaOrIncident;
-		if($childProtectionReportsMade!=null) $array['childProtectionReportsMade'] = $childProtectionReportsMade;
-		if($linkedWithCourtAccompanimentServices!=null) $array['linkedWithCourtAccompanimentServices'] = $linkedWithCourtAccompanimentServices;
-		if($dateFileShredded!=null) $array['dateFileShredded'] = $dateFileShredded;
-		if($otherComment!=null) $array['otherComment'] = $otherComment;
+		if($_POST['caseNumber']!=null) $array['caseNumber'] = $_POST['caseNumber'];
+		if($_POST['firstName']!=null) $array['firstName'] = $_POST['firstName'];
+		if($_POST['lastName']!=null) $array['lastName'] = $_POST['lastName'];
+		if($_POST['relationalIndex']!=null) $array['relationalIndex'] = $_POST['relationalIndex'];
+		if($_POST['age']!=null) $array['age'] = $_POST['age'];
+		if($_POST['referrerName']!=null) $array['referrerName'] = $_POST['referrerName'];
+		if($_POST['referrerAgency']!=null) $array['referrerAgency'] = $_POST['referrerAgency'];
+		if($_POST['fatherName']!=null) $array['fatherName'] = $_POST['fatherName'];
+		if($_POST['motherName']!=null) $array['motherName'] = $_POST['motherName'];
+		if($_POST['location']!=null) $array['location'] = $_POST['location'];
+		if($_POST['referralReason']!=null) $array['referralReason'] = $_POST['referralReason'];
+		if($_POST['CSAoutcome']!=null) $array['CSAoutcome'] = $_POST['CSAoutcome'];
+		if($_POST['natureOfAbuse']!=null) $array['natureOfAbuse'] = $_POST['natureOfAbuse'];
+		if($_POST['continuousOrOnceOff']!=null) $array['continuousOrOnceOff'] = $_POST['continuousOrOnceOff'];
+		if($_POST['oneOrMultipleAbusers']!=null) $array['oneOrMultipleAbusers'] = $_POST['oneOrMultipleAbusers'];
+		if($_POST['peerToPeerOrAdult']!=null) $array['peerToPeerOrAdult'] = $_POST['peerToPeerOrAdult'];
+		if($_POST['waitingListStartDate']!=null) $array['waitingListStartDate'] = $_POST['waitingListStartDate'];
+		if($_POST['therapyStartDate']!=null) $array['therapyStartDate'] = $_POST['therapyStartDate'];
+		if($_POST['returned']!=null) $array['returned'] = $_POST['returned'];
+		if($_POST['childInCare']!=null) $array['childInCare'] = $_POST['childInCare'];
+		if($_POST['childProtectionReportsMade']!=null) $array['childProtectionReportsMade'] = $_POST['childProtectionReportsMade'];
+		if($_POST['linkedWithCourtAccompanimentServices']!=null) $array['linkedWithCourtAccompanimentServices'] = $_POST['linkedWithCourtAccompanimentServices'];
+		if($_POST['dateFileShredded']!=null) $array['dateFileShredded'] = $_POST['dateFileShredded'];
 
 
 		
 		$result = $this->model->search($array);
+
+		$id = 1;
 		foreach ($result as $client): 
-			echo "ID: " . $client['caseNumber'] . " First Name: " . $client['firstName'] . " Last Name: " 	. $client['lastName'] . " Relational Index: " 
-			. $client['relationalIndex'] . " Age: " . $client['age'] . " Referrer Name: " . $client['referrerName'] . " Referrer Agency: " . $client['referrerAgency'] 
-			. " Father Name: " . $client['fatherName'] . " Mother Name: " . $client['motherName'] . " Referral Reason: " . $client['referralReason'] . " CSA outcome: " . $client['CSAoutcome']
-			." Nature Of Abuse: " . $client['natureOfAbuse'] ." Continuous Or Once Off: " . $client['continuousOrOnceOff'] ." Alleged Abuser: " . $client['allegedAbuser'] 
-			." One Or Multiple Abusers: " . $client['oneOrMultipleAbusers'] ." Abuser Relation To Victim: " . $client['abuserRelationToVictim'] ." Peer To Peer Or Adult: " 
-			. $client['peerToPeerOrAdult'] ." Location: " . $client['location'] ." Waiting List Start Date: " . $client['waitingListStartDate']." Therapy Start Date: " . $client['therapyStartDate']
-			." Returned: " . $client['returned']." Child In Care: " . $client['childInCare'] ." Advice Appointment Reason: " . $client['adviceAppointmentReason']." professionalsForAdviceAppointment: " 
-			. $client['professionalsForAdviceAppointment'] ." Other Trauma Or Incident: " . $client['otherTraumaOrIncident'] ." Child Protection Reports Made: " . $client['childProtectionReportsMade']
-			." Linked With Court Accompaniment Services: " . $client['linkedWithCourtAccompanimentServices'] ." Date File Shredded: " . $client['dateFileShredded']
-			." Other Comment: " . $client['otherComment']."<br>"; 
+			echo "
+				<tr class='clickable' data-toggle='collapse' id='" . $id . "' data-target='." . $id . "collapsed'>
+		            <td>" . $client['caseNumber'] . "</td>
+		            <td>" . $client['firstName'] . "</td>
+		            <td>" . $client['lastName'] . "</td>
+		            <td>" . $client['age'] . "</td>
+		        </tr>
+		        <tr class='collapse out budgets " . $id . "collapsed'>
+		            <td>
+		            	<a href = 'http://localhost/index.php/pages/edit/" . $client['caseNumber'] . "'>Edit</a> <br>Relational Index: " . $client['relationalIndex'] . 
+		            	"<br>Mother Name: " . $client['motherName'] . 
+		            	"<br>Nature Of Abuse: " . $client['natureOfAbuse'] ."<br>Peer To Peer Or Adult: ". $client['peerToPeerOrAdult'] .
+		            	"<br>Returned: " . $client['returned']."<br>Other Trauma Or Incident: " . $client['otherTraumaOrIncident'] .
+		            	"<br>Other Comment: " . $client['otherComment']."
+		            </td>
+		            <td>
+		            	<br>Referrer Name: " . $client['referrerName'] . "<br>Referral Reason: " . $client['referralReason'] . 
+		            	"<br>Continuous Or Once Off: " . $client['continuousOrOnceOff'] ."<br>County: " . $client['location'] .
+		            	"<br>Child In Care: " . $client['childInCare'] ."<br>Child Protection Reports Made: " . $client['childProtectionReportsMade'].
+		            	" 
+		            </td>
+		            <td>
+		            	<br>Referrer Agency: " . $client['referrerAgency'] . "<br>Alleged Abuser: " . $client['allegedAbuser'] .
+		            	"<br>Abuser Relation To Victim: " . $client['abuserRelationToVictim'] ."<br>Waiting List Start Date: " . $client['waitingListStartDate'].
+		            	"<br>Advice Appointment Reason: " . $client['adviceAppointmentReason']."<br>Linked With Court Accompaniment Services: " . $client['linkedWithCourtAccompanimentServices'] ."
+		            </td>
+		            <td>
+		            	<br>Father Name: " . $client['fatherName'] . "<br>CSA outcome: " . $client['CSAoutcome'] .
+		            	"<br>One Or Multiple Abusers: " . $client['oneOrMultipleAbusers'] ."<br>Therapy Start Date: " . $client['therapyStartDate'].
+		            	"<br>professionalsForAdviceAppointment: ". $client['professionalsForAdviceAppointment'] ."<br>Date File Shredded: " . $client['dateFileShredded']." 
+		            </td>
+		        </tr>";
+		    $id = $id + 1; 
 		endforeach;
-		
 	}
 	
+	public function updateClient(){
+		echo $this->model->updateClient($_POST);
+
+	}
+
 	public function submit(){
 		echo $this->model->newClient($_POST);
 	}
 	
 	public function betweenPlease(){
-		//echo "hello <br>";
 		$minvalue = $_POST['minvalueAge'];
 		$maxvalue = $_POST['maxvalueAge'];
 		$age = $_POST['age'];

@@ -17,7 +17,18 @@ class model extends CI_Model {
 			$query = $this->db->get_where('client', array('ID' => $ID));
 			return $query->row_array();
 		}
+
+		public function getClient($ID)
+		{
+			$query = $this->db->get_where('client', array('caseNumber' => $ID));
+			return $query->row_array();
+		}
 		
+		public function updateClient($array){
+			$this->db->update('client', $array, array('caseNumber' => $array['caseNumber']));
+			return "Client updated.";
+		}
+
 		public function search($array)
 		{
 			$query = $this->db->get_where('client', $array);

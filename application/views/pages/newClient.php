@@ -2,152 +2,251 @@
 <html lang="en">
 <head>
 	<title><?php echo $title ?></title>
-	<link rel = "stylesheet" type = "text/css" href = "<?php echo base_url(); ?>css/homecss.css">
+	<link rel = "stylesheet" type = "text/css" href = "<?php echo base_url(); ?>css/theme.css">
 	<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+	 <!-- Bootstrap core CSS -->
+    <link href="<?php echo base_url(); ?>dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="<?php echo base_url(); ?>dist/css/bootstrap-theme.min.css" rel="stylesheet">
 	<script type="text/javascript">google.load("jquery", "1.3.2");</script>
 	
 </head>
 <body>
-	<div id="nav">
-	<?php  
-		if($this->session->logged_in == false){
-			redirect(site_url('Login/index'));
-		}
-		else{
-			echo "Logged in as " . $this->session->username;
-		}
-	?>
-	
-		<h1>Create New Client</h1>
-		<p><a href= "<?php echo site_url('pages/logout'); ?>"> Log Out </a></p>
-		<p><a href= "<?php echo site_url('homePage'); ?>"> Home Page </a></p>
-		Search for Clients: 
-		<p><a href = "<?php echo site_url('home'); ?>"> Search </a></p>
-	</div>
 
-	<form id="form">
-	<div class="container">
-		<div id="person">
-			Case Number: <br>
-			<input type="number" name="caseNumber" placeholder="Case Number"><br>
-			Relation Number: <br>
-			<input type="number" name="relationalIndex" placeholder="Relation Number"><br>
-			First Name: <br>
-			<input type="text" name="firstName" placeholder="First Name"><br>
-			Last Name: <br>
-			<input type="text" name="lastName" placeholder="Last Name"><br>
-			Age: <br>
-			<input type="number" name="age" placeholder="Age"><br>
-			Referrer Name: <br>
-			<input type="text" name="referrerName" placeholder="Referrer Name"><br>
-			Referrer Agency: <br>
-			<input type="text" name="referrerAgency" placeholder="Referrer Agency"><br>
-			Name of Father: <br>
-			<input type="text" name="fatherName" placeholder="Name of Father"><br>
-			Name of Mother: <br>
-			<input type="text" name="motherName" placeholder="Name of Mother"><br> 
-			Referral Reason: <br>
-			<select name="referralReason">
-			<option value="" disabled selected>Select...</option>
-			<option value="csa">Childhood Sexual Assault</option>
-			<option value="sexualisedBehaviour">Sexualised Behaviour</option>
-			<option value="other">Other</option>
-			</select><br>
-			Outcome: <br>
-			<select name = "CSAoutcome">
-			<option value="" disabled selected>Select...</option>
-			<option value="credible">Credible</option>
-			<option value="notCredible">Not Credible</option>
-			<option value="inconclusive">Inconclusive</option>
-			</select><br>
-		</div>
-		<div id="case">
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href= "<?php echo site_url('homePage'); ?>">Home</a></p> </li>
+            <li><a href = "<?php echo site_url('home'); ?>">Search</a></li>
+            <p class="navbar-text">
+            	<?php  
+					if($this->session->logged_in == false){
+						redirect(site_url('Login/index'));
+					}
+					else{
+						echo "Logged in as " . $this->session->username . ":";
+					}
+				?>
+            </p> 
+            <li><a href= "<?php echo site_url('pages/logout'); ?>"> Log Out </a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+        
+    <h1 class="text-center">Create Client</h1>
+
+
+	<div class="container theme-showcase" role="main">
+		<div class="row">
+			<form id="form">
+		
+					<div class="col-md-4">
+						<div class="form-group">
+						    <label for="caseNumber">ID</label>
+						    <input type="number" class="form-control" id="caseNumber" name="caseNumber" placeholder="ID">
+						</div>
+						<div class="form-group">
+						    <label for="firstName">First Name</label>
+						    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First name">
+						</div>
+						<div class="form-group">
+						    <label for="lastName">Last Name</label>
+						    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last name">
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group">
+						    <label for="relationalIndex">Relational Index</label>
+						    <input type="number" class="form-control" id="relationalIndex" name="relationalIndex" placeholder="Relational index">
+						</div>
+						<div class="form-group">
+						    <label for="age">Age</label>
+						    <input type="number" class="form-control" id="age" name="age" placeholder="Age">
+						</div>
+						<div class="form-group">
+						    <label for="referrerName">Referrer Name</label>
+						    <input type="text" class="form-control" id="referrerName" name="referrerName" placeholder="Referrer name">
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group">
+						    <label for="referrerAgency">Referrer Agency</label>
+						    <input type="text" class="form-control" id="referrerAgency" name="referrerAgency" placeholder="Referrer agency">
+						</div>
+						<div class="form-group">
+						    <label for="fatherName">Father Name</label>
+						    <input type="text" class="form-control" id="fatherName" name="fatherName" placeholder="Father name">
+						</div>
+						<div class="form-group">
+						    <label for="motherName">Mother Name</label>
+						    <input type="text" class="form-control" id="motherName" name="motherName" placeholder="Mother name">
+						</div>
+
+					</div>
+
+					<div class="col-md-6">
+						<div class="form-group">
+						    <label for="referralReason">Referral Reason</label>
+						    <select class="form-control" id="referralReason" name = "referralReason">
+								<option value="" disabled selected>Select...</option>
+								<option value="csa">Childhood Sexual Assault</option>
+								<option value="sexualisedBehaviour">Sexualised Behaviour</option>
+								<option value="other">Other</option>
+						    </select>
+						</div>
+						<div class="form-group">
+						    <label for="CSAoutcome">CSA Outcome</label>
+							<select class="form-control" id="CSAoutcome" name="CSAoutcome">
+								<option value="" disabled selected>Select...</option>
+								<option value="credible">Credible</option>
+								<option value="notCredible">Not Credible</option>
+								<option value="inconclusive">Inconclusive</option>
+						    </select>						
+						</div>
+						<div class="form-group">
+						    <label for="natureOfAbuse">Nature Of Abuse</label>
+						    <select class="form-control" id="natureOfAbuse" name="natureOfAbuse">
+								<option value="" disabled selected>Select...</option>
+								<option value="physical">Physical</option>
+								<option value="mental">Mental</option>
+						    </select>
+						</div>
+						<div class="form-group">
+						    <label for="continuousOrOnceOff">Continuous Or Once Off</label>
+						    <select class="form-control" id="continuousOrOnceOff" name="continuousOrOnceOff">
+								<option value="" disabled selected>Select...</option>
+								<option value="continuous">Continuous</option>
+								<option value="onceOff">Once Off</option>
+								<option value="other">Other</option>
+						    </select>
+						</div>
+						<div class="form-group">
+						    <label for="allegedAbuser">Alleged Abuser</label>
+						    <input type="text" class="form-control" id="allegedAbuser" name="allegedAbuser" placeholder="Alleged abuser">
+						</div>
+						<div class="form-group">
+						    <label for="oneOrMultipleAbusers">One Or Multiple Abusers</label>
+						    <select class="form-control" id="oneOrMultipleAbusers" name="oneOrMultipleAbusers">
+								<option value="" disabled selected>Select...</option>
+								<option value="one">One</option>
+								<option value="multiple">Multiple</option>
+								<option value="other">Other</option>
+						    </select>
+						</div>
+						<div class="form-group">
+						    <label for="abuserRelationToVictim">Abuser Relation To Victim</label>
+						    <input type="text" class="form-control" id="abuserRelationToVictim" name="abuserRelationToVictim" placeholder="Abuser relation to victim">
+						</div>
+						<div class="form-group">
+						    <label for="peerToPeerOrAdult">Peer To Peer or Adult</label>
+						    <select class="form-control" id="peerToPeerOrAdult" name="peerToPeerOrAdult">
+								<option value="" disabled selected>Select...</option>
+								<option value="peerToPeer">Peer To Peer</option>
+								<option value="adult">Adult</option>
+								<option value="other">Other</option>
+						    </select>
+						</div>
+						<div class="form-group">
+						    <label for="location">County</label>
+						    <input type="text" class="form-control" id="location" name="location" placeholder="County">
+						</div>
+						<div class="form-group">
+				            <label for="waitingListStartDate" class="col-2 col-form-label">Waiting List Start Date</label>
+							<div class="col-10">
+							  <input class="form-control" type="date" id="waitingListStartDate" name="waitingListStartDate">
+							</div>
+				        </div>
+					    <div class="form-group">
+				            <label for="therapyStartDate" class="col-2 col-form-label">Therapy Start Date</label>
+							<div class="col-10">
+							  <input class="form-control" type="date" id="therapyStartDate" name="therapyStartDate">
+							</div>
+				        </div>
+					</div>
 			
-			Nature Of Abuse: <br>
-			<select name="natureOfAbuse">
-			<option value="" disabled selected>Select...</option>
-			<option value="">Options go here</option>
-			</select><br>
-			Continuous Or Once Off: <br>
-			<select name="continuousOrOnceOff">
-			<option value="" disabled selected>Select...</option>
-			<option value="continuous">Continuous</option>
-			<option value="onceOff">Once Off</option>
-			<option value="other">Other</option>
-			</select><br>
-			Alleged Abuser: <br>
-			<input type="text" name="allegedAbuser" placeholder="Alleged Abuser"><br>
-			One or Multiple Abusers: <br>
-			<select name="oneOrMultipleAbusers">
-			<option value="" disabled selected>Select...</option>
-			<option value="one">One</option>
-			<option value="onceOff">Multiple</option>
-			<option value="other">Other</option>
-			</select><br>
-			Abuser Relation to Victim: <br>
-			<input type="text" name="abuserRelationToVictim" placeholder="Abuser Relation To Victim"><br>
-			Peer To Peer Or Adult: <br>
-			<select name="peerToPeerOrAdult">
-			<option value="" disabled selected>Select...</option>
-			<option value="peerToPeer">Peer To Peer</option>
-			<option value="adult">Adult</option>
-			<option value="other">Other</option>
-			</select><br>
-			Location: <br>
-			<input type="text" name="location" placeholder="Location"><br>
-			Waiting List Start Date: <br>
-			<input type="date" name="waitingListStartDate"><br>
-			Therapy Start Date: <br>
-			<input type="date" name="therapyStartDate"><br>
-			Returned: <br>
-			<select name="returned">
-			<option value="" disabled selected>Select...</option>
-			<option value=1>Yes</option>
-			<option value=0>No</option>
-			</select><br>
-		</div>
-		<div id="therapy">
-			
-			Child in Care: <br>
-			<select name="childInCare">
-			<option value="" disabled selected>Select...</option>
-			<option value="yes">Yes</option>
-			<option value="no">No</option>
-			<option value="other">Other</option>
-			</select><br>
-			Advice Appointment Reason: <br>
-			<input type="text" name="adviceAppointmentReason" placeholder="Appointment Reason"><br>
-			Professionals For Advice Appointment: <br>
-			<select name="professionalsForAdviceAppointment">
-			<option value="" disabled selected>Select...</option>
-			<option value="yes">Yes</option>
-			<option value="no">No</option>
-			<option value="unknown">Unknown</option>
-			</select><br>
-			Other Trauma or Incident: <br>
-			<textarea name="otherTraumaOrIncident" rows = 4 cols = 45></textarea><br>
-			Child Protection Reports Made: <br>
-			<select name="childProtectionReportsMade">
-			<option value="" disabled selected>Select...</option>
-			<option value="yes">Yes</option>
-			<option value="no">No</option>
-			<option value="unknown">Unknown</option>
-			</select><br>
-			Linked With Court Accompaniment Services: <br>
-			<select name="linkedWithCourtAccompanimentServices">
-			<option value="" disabled selected>Select...</option>
-			<option value="yes">Yes</option>
-			<option value="no">No</option>
-			<option value="unknown">Unknown</option>
-			</select><br>
-			Date File Shredded: <br>
-			<input type="date" name="dateFileShredded" placeholder=""><br>
-			Other Comment:<br>
-			<textarea name="otherComment" rows = 4 cols = 45></textarea><br>
-			<button class="button" onclick="formFunction()">Create >></button>
-		</div>
-		</div>
-	</form> 
+					<div class="col-md-6">
+
+						<div class="form-group">
+							<label for="returned">Returned</label>
+							<select class="form-control" id="returned" name="returned">
+								<option value="" disabled selected>Select...</option>
+								<option value=1>Yes</option>
+								<option value=0>No</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="childInCare">Child In Care</label>
+							<select class="form-control" id="childInCare" name="childInCare">
+								<option value="" disabled selected>Select...</option>
+								<option value="yes">Yes</option>
+								<option value="no">No</option>
+								<option value="other">Other</option>
+							</select>
+						</div>
+						<div class="form-group">
+						    <label for="adviceAppointmentReason">Advice Appointment Reason</label>
+						    <textarea class="form-control" id="adviceAppointmentReason" name="adviceAppointmentReason" rows="3"></textarea>
+						</div>
+						<div class="form-group">
+							<label for="professionalsForAdviceAppointment">Professionals For Advice Appointment</label>
+							<select class="form-control" id="professionalsForAdviceAppointment" name="professionalsForAdviceAppointment">
+								<option value="" disabled selected>Select...</option>
+								<option value="yes">Yes</option>
+								<option value="no">No</option>
+								<option value="unknown">Unknown</option>
+							</select>
+						</div>
+						<div class="form-group">
+						    <label for="otherTraumaOrIncident">Other Trauma Or Incident</label>
+						    <textarea class="form-control" id="otherTraumaOrIncident" name="otherTraumaOrIncident" rows="3"></textarea>
+						</div>
+						<div class="form-group">
+							<label for="childProtectionReportsMade">Child Protection Reports Made</label>
+							<select class="form-control" id="childProtectionReportsMade" name="childProtectionReportsMade">
+								  <option value="" disabled selected>Select...</option>
+								  <option value="yes">Yes</option>
+								  <option value="no">No</option>
+								  <option value="unknown">Unknown</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="linkedWithCourtAccompanimentServices">Linked With Court Accompaniment Services</label>
+							<select class="form-control" id="linkedWithCourtAccompanimentServices" name="linkedWithCourtAccompanimentServices">
+								<option value="" disabled selected>Select...</option>
+								<option value="yes">Yes</option>
+								<option value="no">No</option>
+								<option value="unknown">Unknown</option>
+							</select>
+						</div>
+						<div class="form-group">
+				            <label for="dateFileShredded" class="col-2 col-form-label">Date File Shredded</label>
+							<div class="col-10">
+							  <input class="form-control" type="date" id="dateFileShredded" name="dateFileShredded">
+							</div>
+				        </div>
+
+						<div class="form-group">
+						    <label for="otherComment">Other Comment</label>
+						    <textarea class="form-control" id="otherComment" name="otherComment" rows="3"></textarea>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<button type="button" class="btn btn-default btn-block" onclick="formFunction()">Create Client</button>
+					</div>
+				</form>
+			</div>
+	</div> 
 	
 	
 	<script>

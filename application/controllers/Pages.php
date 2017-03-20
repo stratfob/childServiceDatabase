@@ -32,4 +32,16 @@ class Pages extends CI_Controller {
                 $this->session->sess_destroy();
                 redirect(site_url());
         }
+
+        public function edit($id)
+        {
+                $this->load->helper('url'); // For helper fuctions like base_url();.
+                        
+                        // send data to view
+                $data['title'] = "Edit";
+                $data['data'] = $this->model->getClient($id);
+                        
+                        // load the view
+                $this->load->view('pages/edit', $data);
+        }
 }

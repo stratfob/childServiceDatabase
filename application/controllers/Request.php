@@ -13,7 +13,7 @@ class Request extends CI_Controller {
 		if($_POST['caseNumber']!=null) $array['caseNumber'] = $_POST['caseNumber'];
 		if($_POST['firstName']!=null) $array['firstName'] = $_POST['firstName'];
 		if($_POST['lastName']!=null) $array['lastName'] = $_POST['lastName'];
-		if($_POST['relationalIndex']!=null) $array['relationalIndex'] = $_POST['relationalIndex'];
+		if($_POST['gender']!=null) $array['gender'] = $_POST['gender'];
 		if($_POST['age']!=null) $array['age'] = $_POST['age'];
 		if($_POST['referrerName']!=null) $array['referrerName'] = $_POST['referrerName'];
 		if($_POST['referrerAgency']!=null) $array['referrerAgency'] = $_POST['referrerAgency'];
@@ -32,6 +32,7 @@ class Request extends CI_Controller {
 		if($_POST['childInCare']!=null) $array['childInCare'] = $_POST['childInCare'];
 		if($_POST['childProtectionReportsMade']!=null) $array['childProtectionReportsMade'] = $_POST['childProtectionReportsMade'];
 		if($_POST['linkedWithCourtAccompanimentServices']!=null) $array['linkedWithCourtAccompanimentServices'] = $_POST['linkedWithCourtAccompanimentServices'];
+		if($_POST['linkedWithForensicAccompanimentServices']!=null) $array['linkedWithForensicAccompanimentServices'] = $_POST['linkedWithForensicAccompanimentServices'];
 		if($_POST['dateFileShredded']!=null) $array['dateFileShredded'] = $_POST['dateFileShredded'];
 
 
@@ -46,30 +47,34 @@ class Request extends CI_Controller {
 		            <td>" . $client['firstName'] . "</td>
 		            <td>" . $client['lastName'] . "</td>
 		            <td>" . $client['age'] . "</td>
+		            <td><a href='http://localhost/index.php/pages/edit/" . $client['caseNumber'] . "'>Edit</a></td>
+		            <td><a href='http://localhost/index.php/pages/notes/" . $client['caseNumber'] . "'>Client notes</a></td>
 		        </tr>
 		        <tr class='collapse out budgets " . $id . "collapsed'>
-		            <td>
-		            	<a href = 'http://localhost/index.php/pages/edit/" . $client['caseNumber'] . "'>Edit</a> <br>Relational Index: " . $client['relationalIndex'] . 
-		            	"<br>Mother Name: " . $client['motherName'] . 
-		            	"<br>Nature Of Abuse: " . $client['natureOfAbuse'] ."<br>Peer To Peer Or Adult: ". $client['peerToPeerOrAdult'] .
-		            	"<br>Returned: " . $client['returned']."<br>Other Trauma Or Incident: " . $client['otherTraumaOrIncident'] .
+		            <td colspan='6'>
+		            	<br>Gender: " . $client['gender'] .
+		            	"<br>Mother name: " . $client['motherName'] . 
+		            	"<br>Father name: " . $client['fatherName'] . 
+		            	"<br>Therapist name: ". $client['professionalsForAdviceAppointment'] .
+		            	"<br>Previous client: " . $client['returned'].
+		            	"<br>Nature of abuse: " . $client['natureOfAbuse'] .
+		            	"<br>Peer to peer or adult: ". $client['peerToPeerOrAdult'] .
+		            	"<br>Referrer name: " . $client['referrerName'] . 
+		            	"<br>Referrer agency: " . $client['referrerAgency'] .		            	
+		            	"<br>Referral reason: " . $client['referralReason'] . 
+		            	"<br>One or more incidents of abuse: " . $client['continuousOrOnceOff'] .
+		            	"<br>Abuser relation to victim: " . $client['abuserRelationToVictim'] .		            	
+		            	"<br>County: " . $client['location'] .
+		            	"<br>Child in care: " . $client['childInCare'] ."<br>Child Protection Reports Made: " . $client['childProtectionReportsMade'].
+		            	"<br>Linked with court accompaniment aervices: " . $client['linkedWithCourtAccompanimentServices'] .
+		            	"<br>Linked with forensic accompaniment aervices: " . $client['linkedWithForensicAccompanimentServices'] .
+		            	"<br>Childhood sexual assault outcome: " . $client['CSAoutcome'] .
+		            	"<br>One or multiple abusers: " . $client['oneOrMultipleAbusers'] .
+		            	"<br>Waiting list start date: " . $client['waitingListStartDate'].		            	
+		            	"<br>Therapy start date: " . $client['therapyStartDate'].
+		            	"<br>Date sile shredded: " . $client['dateFileShredded'].
+		            	"<br>Date client created in database: " . $client['dateClientCreated'].
 		            	"<br>Other Comment: " . $client['otherComment']."
-		            </td>
-		            <td>
-		            	<br>Referrer Name: " . $client['referrerName'] . "<br>Referral Reason: " . $client['referralReason'] . 
-		            	"<br>Continuous Or Once Off: " . $client['continuousOrOnceOff'] ."<br>County: " . $client['location'] .
-		            	"<br>Child In Care: " . $client['childInCare'] ."<br>Child Protection Reports Made: " . $client['childProtectionReportsMade'].
-		            	" 
-		            </td>
-		            <td>
-		            	<br>Referrer Agency: " . $client['referrerAgency'] . "<br>Alleged Abuser: " . $client['allegedAbuser'] .
-		            	"<br>Abuser Relation To Victim: " . $client['abuserRelationToVictim'] ."<br>Waiting List Start Date: " . $client['waitingListStartDate'].
-		            	"<br>Advice Appointment Reason: " . $client['adviceAppointmentReason']."<br>Linked With Court Accompaniment Services: " . $client['linkedWithCourtAccompanimentServices'] ."
-		            </td>
-		            <td>
-		            	<br>Father Name: " . $client['fatherName'] . "<br>CSA outcome: " . $client['CSAoutcome'] .
-		            	"<br>One Or Multiple Abusers: " . $client['oneOrMultipleAbusers'] ."<br>Therapy Start Date: " . $client['therapyStartDate'].
-		            	"<br>professionalsForAdviceAppointment: ". $client['professionalsForAdviceAppointment'] ."<br>Date File Shredded: " . $client['dateFileShredded']." 
 		            </td>
 		        </tr>";
 		    $id = $id + 1; 
@@ -79,6 +84,10 @@ class Request extends CI_Controller {
 	public function updateClient(){
 		echo $this->model->updateClient($_POST);
 
+	}
+
+	public function addNote(){
+		echo $this->model->newNote($_POST);
 	}
 
 	public function submit(){

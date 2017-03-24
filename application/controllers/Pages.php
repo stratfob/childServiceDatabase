@@ -44,4 +44,17 @@ class Pages extends CI_Controller {
                         // load the view
                 $this->load->view('pages/edit', $data);
         }
+
+        public function notes($id)
+        {
+                $this->load->helper('url'); // For helper fuctions like base_url();.
+                        
+                        // send data to view
+                $data['title'] = "Client Notes";
+                $data['caseNumber'] = $id;
+                $data['data'] = $this->model->getNotes($id);
+                        
+                        // load the view
+                $this->load->view('pages/notes', $data);
+        }
 }

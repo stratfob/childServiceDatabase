@@ -24,6 +24,12 @@ class model extends CI_Model {
 			return $query->row_array();
 		}
 		
+		public function getNotes($ID)
+		{
+			$query = $this->db->get_where('notes', array('clientID' => $ID));
+			return $query->result_array();
+		}
+
 		public function updateClient($array){
 			$this->db->update('client', $array, array('caseNumber' => $array['caseNumber']));
 			return "Client updated.";
@@ -79,7 +85,8 @@ class model extends CI_Model {
 		
 		public function newUser($array)
 		{
-			return $this->db->insert('users', $array);
+			$this->db->insert('users', $array);
+			return "User created";
 		}
 
 		public function newClient($array)
@@ -91,5 +98,10 @@ class model extends CI_Model {
 				$this->db->insert('client', $array);
 				return "Client created";
 			}
+		}
+
+		public function newNote($array){
+			$this->db->insert('notes', $array);
+			return "New note created";
 		}
 }

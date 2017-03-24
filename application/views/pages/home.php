@@ -57,7 +57,7 @@
 		
 					<div class="col-md-4">
 						<div class="form-group">
-						    <label for="caseNumber">ID</label>
+						    <label for="caseNumber">Client Number</label>
 						    <input type="number" class="form-control" id="caseNumber" name="caseNumber" placeholder="ID">
 						</div>
 						<div class="form-group">
@@ -71,8 +71,13 @@
 					</div>
 					<div class="col-md-4">
 						<div class="form-group">
-						    <label for="relationalIndex">Relational Index</label>
-						    <input type="number" class="form-control" id="relationalIndex" name="relationalIndex" placeholder="Relational index">
+						    <label for="gender">Gender</label>
+						    <select class="form-control" id="gender" name = "gender">
+								<option value="" disabled selected>Select...</option>
+								<option value="Male">Male</option>
+								<option value="Female">Female</option>
+								<option value="Other">Other</option>
+						    </select>
 						</div>
 						<div class="form-group">
 						    <label for="age">Age</label>
@@ -116,53 +121,52 @@
 						    <label for="referralReason">Referral Reason</label>
 						    <select class="form-control" id="referralReason" name = "referralReason">
 								<option value="" disabled selected>Select...</option>
-								<option value="csa">Childhood Sexual Assault</option>
-								<option value="sexualisedBehaviour">Sexualised Behaviour</option>
-								<option value="other">Other</option>
+								<option value="Childhood Sexual Assault">Childhood Sexual Assault</option>
+								<option value="Sexualised Behaviour">Sexualised Behaviour</option>
+								<option value="Other">Other</option>
 						    </select>
 						</div>
 						<div class="form-group">
 						    <label for="CSAoutcome">CSA Outcome</label>
 							<select class="form-control" id="CSAoutcome" name="CSAoutcome">
 								<option value="" disabled selected>Select...</option>
-								<option value="credible">Credible</option>
-								<option value="notCredible">Not Credible</option>
-								<option value="inconclusive">Inconclusive</option>
+								<option value="Credible">Credible</option>
+								<option value="Not Credible">Not Credible</option>
+								<option value="Inconclusive">Inconclusive</option>
 						    </select>						
 						</div>
 						<div class="form-group">
 						    <label for="natureOfAbuse">Nature Of Abuse</label>
 						    <select class="form-control" id="natureOfAbuse" name="natureOfAbuse">
 								<option value="" disabled selected>Select...</option>
-								<option value="physical">Physical</option>
-								<option value="mental">Mental</option>
+								<option value="Physical">Physical</option>
+								<option value="Mental">Mental</option>
+								<option value="Sexual">Sexual</option>
+								<option value="Emotional">Emotional</option>
 						    </select>
 						</div>
 						<div class="form-group">
-						    <label for="continuousOrOnceOff">Continuous Or Once Off</label>
+						    <label for="continuousOrOnceOff">One or more Incidents of Abuse</label>
 						    <select class="form-control" id="continuousOrOnceOff" name="continuousOrOnceOff">
 								<option value="" disabled selected>Select...</option>
-								<option value="continuous">Continuous</option>
-								<option value="onceOff">Once Off</option>
-								<option value="other">Other</option>
+								<option value="One">One</option>
+								<option value="More">More</option>
 						    </select>
 						</div>
 						<div class="form-group">
 						    <label for="oneOrMultipleAbusers">One Or Multiple Abusers</label>
 						    <select class="form-control" id="oneOrMultipleAbusers" name="oneOrMultipleAbusers">
 								<option value="" disabled selected>Select...</option>
-								<option value="one">One</option>
-								<option value="multiple">Multiple</option>
-								<option value="other">Other</option>
+								<option value="One">One</option>
+								<option value="Multiple">Multiple</option>
 						    </select>
 						</div>
 						<div class="form-group">
 						    <label for="peerToPeerOrAdult">Peer To Peer or Adult</label>
 						    <select class="form-control" id="peerToPeerOrAdult" name="peerToPeerOrAdult">
 								<option value="" disabled selected>Select...</option>
-								<option value="peerToPeer">Peer To Peer</option>
-								<option value="adult">Adult</option>
-								<option value="other">Other</option>
+								<option value="Peer To Peer">Peer To Peer</option>
+								<option value="Adult">Adult</option>
 						    </select>
 						</div>
 					</div>
@@ -181,28 +185,27 @@
 							</div>
 				        </div>
 						<div class="form-group">
-							<label for="returned">Returned</label>
+							<label for="returned">Previous Client</label>
 							<select class="form-control" id="returned" name="returned">
 								<option value="" disabled selected>Select...</option>
-								<option value=1>Yes</option>
-								<option value=0>No</option>
+								<option value="Yes">Yes</option>
+								<option value="No">No</option>
 							</select>
 						</div>
 						<div class="form-group">
 							<label for="childInCare">Child In Care</label>
 							<select class="form-control" id="childInCare" name="childInCare">
 								<option value="" disabled selected>Select...</option>
-								<option value="yes">Yes</option>
-								<option value="no">No</option>
-								<option value="other">Other</option>
+								<option value="Yes">Yes</option>
+								<option value="No">No</option>
 							</select>
 						</div>
 						<div class="form-group">
 							<label for="childProtectionReportsMade">Child Protection Reports Made</label>
 							<select class="form-control" id="childProtectionReportsMade" name="childProtectionReportsMade">
 								  <option value="" disabled selected>Select...</option>
-								  <option value="yes">Yes</option>
-								  <option value="no">No</option>
+								  <option value="Yes">Yes</option>
+								  <option value="No">No</option>
 								  <option value="">Unknown</option>
 							</select>
 						</div>
@@ -210,8 +213,17 @@
 							<label for="linkedWithCourtAccompanimentServices">Linked With Court Accompaniment Services</label>
 							<select class="form-control" id="linkedWithCourtAccompanimentServices" name="linkedWithCourtAccompanimentServices">
 								<option value="" disabled selected>Select...</option>
-								<option value="yes">Yes</option>
-								<option value="no">No</option>
+								<option value="Yes">Yes</option>
+								<option value="No">No</option>
+								<option value="">Unknown</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="linkedWithForensicAccompanimentServices">Linked With Forensic Accompaniment Services</label>
+							<select class="form-control" id="linkedWithForensicAccompanimentServices" name="linkedWithForensicAccompanimentServices">
+								<option value="" disabled selected>Select...</option>
+								<option value="Yes">Yes</option>
+								<option value="No">No</option>
 								<option value="">Unknown</option>
 							</select>
 						</div>
@@ -235,29 +247,19 @@
 				</div>
 			</div>
 
-
-<table class="table table-hover">
-  <thead>
-	<tr>
-      <th>ID</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Age</th>
-    </tr>
-    </thead>
-    <tbody id="result">
-    </tbody>
-</table>
-		
-		<table class="table table-expandable table-sticky-header">
-		  <thead>
-
-		  </thead>
-		  <tbody id="result">
-		  </tbody>
-		</table>
-
-
+			<table class="table table-hover">
+			  <thead>
+				<tr>
+			      <th>ID</th>
+			      <th>First Name</th>
+			      <th>Last Name</th>
+			      <th>Age</th>
+			      <th> </th>
+			    </tr>
+			    </thead>
+			    <tbody id="result">
+			    </tbody>
+			</table>
 	</div> 
 	
 	<script>

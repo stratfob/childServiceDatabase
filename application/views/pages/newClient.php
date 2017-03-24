@@ -49,48 +49,53 @@
 
 	<div class="container theme-showcase" role="main">
 		<div class="row">
-			<form id="form">
+<form id="form">
 		
 					<div class="col-md-4">
 						<div class="form-group">
-						    <label for="caseNumber">ID</label>
-						    <input type="number" class="form-control" id="caseNumber" name="caseNumber" placeholder="ID">
+						    <label for="caseNumber">Client Number</label>
+						    <input type="number" class="form-control" id="caseNumber" name="caseNumber">
 						</div>
 						<div class="form-group">
 						    <label for="firstName">First Name</label>
-						    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First name">
+						    <input type="text" class="form-control" id="firstName" name="firstName">
 						</div>
 						<div class="form-group">
 						    <label for="lastName">Last Name</label>
-						    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last name">
+						    <input type="text" class="form-control" id="lastName" name="lastName">
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="form-group">
-						    <label for="relationalIndex">Relational Index</label>
-						    <input type="number" class="form-control" id="relationalIndex" name="relationalIndex" placeholder="Relational index">
+						    <label for="gender">Gender</label>
+						    <select class="form-control" id="gender" name = "gender">
+								<option value="" disabled selected>Select...</option>
+								<option value="Male">Male</option>
+								<option value="Female">Female</option>
+								<option value="Other">Other</option>
+						    </select>
 						</div>
 						<div class="form-group">
-						    <label for="age">Age</label>
-						    <input type="number" class="form-control" id="age" name="age" placeholder="Age">
+						    <label for="age">Age at time of Client Creation</label>
+						    <input type="number" class="form-control" id="age" name="age">
 						</div>
 						<div class="form-group">
 						    <label for="referrerName">Referrer Name</label>
-						    <input type="text" class="form-control" id="referrerName" name="referrerName" placeholder="Referrer name">
+						    <input type="text" class="form-control" id="referrerName" name="referrerName">
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="form-group">
 						    <label for="referrerAgency">Referrer Agency</label>
-						    <input type="text" class="form-control" id="referrerAgency" name="referrerAgency" placeholder="Referrer agency">
+						    <input type="text" class="form-control" id="referrerAgency" name="referrerAgency">
 						</div>
 						<div class="form-group">
 						    <label for="fatherName">Father Name</label>
-						    <input type="text" class="form-control" id="fatherName" name="fatherName" placeholder="Father name">
+						    <input type="text" class="form-control" id="fatherName" name="fatherName">
 						</div>
 						<div class="form-group">
 						    <label for="motherName">Mother Name</label>
-						    <input type="text" class="form-control" id="motherName" name="motherName" placeholder="Mother name">
+						    <input type="text" class="form-control" id="motherName" name="motherName">
 						</div>
 
 					</div>
@@ -98,68 +103,58 @@
 					<div class="col-md-6">
 						<div class="form-group">
 						    <label for="referralReason">Referral Reason</label>
-						    <select class="form-control" id="referralReason" name = "referralReason">
-								<option value="" disabled selected>Select...</option>
-								<option value="csa">Childhood Sexual Assault</option>
-								<option value="sexualisedBehaviour">Sexualised Behaviour</option>
-								<option value="other">Other</option>
-						    </select>
+						    <input type="text" class="form-control" id="referralReason" name="referralReason">
 						</div>
 						<div class="form-group">
-						    <label for="CSAoutcome">CSA Outcome</label>
+						    <label for="CSAoutcome">Childhood Sexual Assault Outcome</label>
 							<select class="form-control" id="CSAoutcome" name="CSAoutcome">
 								<option value="" disabled selected>Select...</option>
-								<option value="credible">Credible</option>
-								<option value="notCredible">Not Credible</option>
-								<option value="inconclusive">Inconclusive</option>
+								<option value="Credible">Credible</option>
+								<option value="Not Credible">Not Credible</option>
+								<option value="Inconclusive">Inconclusive</option>
 						    </select>						
 						</div>
 						<div class="form-group">
 						    <label for="natureOfAbuse">Nature Of Abuse</label>
 						    <select class="form-control" id="natureOfAbuse" name="natureOfAbuse">
 								<option value="" disabled selected>Select...</option>
-								<option value="physical">Physical</option>
-								<option value="mental">Mental</option>
+								<option value="Physical">Physical</option>
+								<option value="Mental">Mental</option>
+								<option value="Sexual">Sexual</option>
+								<option value="Emotional">Emotional</option>
 						    </select>
 						</div>
 						<div class="form-group">
-						    <label for="continuousOrOnceOff">Continuous Or Once Off</label>
+						    <label for="continuousOrOnceOff">One or more Incidents of Abuse</label>
 						    <select class="form-control" id="continuousOrOnceOff" name="continuousOrOnceOff">
 								<option value="" disabled selected>Select...</option>
-								<option value="continuous">Continuous</option>
-								<option value="onceOff">Once Off</option>
-								<option value="other">Other</option>
+								<option value="One">One</option>
+								<option value="More">More</option>
 						    </select>
-						</div>
-						<div class="form-group">
-						    <label for="allegedAbuser">Alleged Abuser</label>
-						    <input type="text" class="form-control" id="allegedAbuser" name="allegedAbuser" placeholder="Alleged abuser">
 						</div>
 						<div class="form-group">
 						    <label for="oneOrMultipleAbusers">One Or Multiple Abusers</label>
 						    <select class="form-control" id="oneOrMultipleAbusers" name="oneOrMultipleAbusers">
 								<option value="" disabled selected>Select...</option>
-								<option value="one">One</option>
-								<option value="multiple">Multiple</option>
-								<option value="other">Other</option>
+								<option value="One">One</option>
+								<option value="Multiple">Multiple</option>
 						    </select>
 						</div>
 						<div class="form-group">
 						    <label for="abuserRelationToVictim">Abuser Relation To Victim</label>
-						    <input type="text" class="form-control" id="abuserRelationToVictim" name="abuserRelationToVictim" placeholder="Abuser relation to victim">
+						    <input type="text" class="form-control" id="abuserRelationToVictim" name="abuserRelationToVictim">
 						</div>
 						<div class="form-group">
 						    <label for="peerToPeerOrAdult">Peer To Peer or Adult</label>
 						    <select class="form-control" id="peerToPeerOrAdult" name="peerToPeerOrAdult">
 								<option value="" disabled selected>Select...</option>
-								<option value="peerToPeer">Peer To Peer</option>
-								<option value="adult">Adult</option>
-								<option value="other">Other</option>
+								<option value="Peer To Peer">Peer To Peer</option>
+								<option value="Adult">Adult</option>
 						    </select>
 						</div>
 						<div class="form-group">
 						    <label for="location">County</label>
-						    <input type="text" class="form-control" id="location" name="location" placeholder="County">
+						    <input type="text" class="form-control" id="location" name="location">
 						</div>
 						<div class="form-group">
 				            <label for="waitingListStartDate" class="col-2 col-form-label">Waiting List Start Date</label>
@@ -178,55 +173,59 @@
 					<div class="col-md-6">
 
 						<div class="form-group">
-							<label for="returned">Returned</label>
+							<label for="returned">Previous Client</label>
 							<select class="form-control" id="returned" name="returned">
 								<option value="" disabled selected>Select...</option>
-								<option value=1>Yes</option>
-								<option value=0>No</option>
+								<option value="Yes">Yes</option>
+								<option value="No">No</option>
 							</select>
 						</div>
 						<div class="form-group">
 							<label for="childInCare">Child In Care</label>
 							<select class="form-control" id="childInCare" name="childInCare">
 								<option value="" disabled selected>Select...</option>
-								<option value="yes">Yes</option>
-								<option value="no">No</option>
-								<option value="other">Other</option>
+								<option value="Yes">Yes</option>
+								<option value="No">No</option>
 							</select>
 						</div>
 						<div class="form-group">
-						    <label for="adviceAppointmentReason">Advice Appointment Reason</label>
-						    <textarea class="form-control" id="adviceAppointmentReason" name="adviceAppointmentReason" rows="3"></textarea>
-						</div>
-						<div class="form-group">
-							<label for="professionalsForAdviceAppointment">Professionals For Advice Appointment</label>
-							<select class="form-control" id="professionalsForAdviceAppointment" name="professionalsForAdviceAppointment">
-								<option value="" disabled selected>Select...</option>
-								<option value="yes">Yes</option>
-								<option value="no">No</option>
-								<option value="unknown">Unknown</option>
+						    <label for="appointmentOffered">Appointment Offered</label>
+						    <select class="form-control" id="appointmentOffered" name="appointmentOffered">
+								  <option value="" disabled selected>Select...</option>
+								  <option value="Advice appointment">Advice appointment</option>
+								  <option value="Therapy appointment">Therapy appointment</option>
+								  <option value="Other">Other</option>
 							</select>
 						</div>
 						<div class="form-group">
-						    <label for="otherTraumaOrIncident">Other Trauma Or Incident</label>
-						    <textarea class="form-control" id="otherTraumaOrIncident" name="otherTraumaOrIncident" rows="3"></textarea>
+							<label for="professionalsForAdviceAppointment">Therapist Name</label>
+							<input type="text" class="form-control" id="professionalsForAdviceAppointment" name="professionalsForAdviceAppointment">
 						</div>
 						<div class="form-group">
 							<label for="childProtectionReportsMade">Child Protection Reports Made</label>
 							<select class="form-control" id="childProtectionReportsMade" name="childProtectionReportsMade">
 								  <option value="" disabled selected>Select...</option>
-								  <option value="yes">Yes</option>
-								  <option value="no">No</option>
-								  <option value="unknown">Unknown</option>
+								  <option value="Yes">Yes</option>
+								  <option value="No">No</option>
+								  <option value="Unknown">Unknown</option>
 							</select>
 						</div>
 						<div class="form-group">
 							<label for="linkedWithCourtAccompanimentServices">Linked With Court Accompaniment Services</label>
 							<select class="form-control" id="linkedWithCourtAccompanimentServices" name="linkedWithCourtAccompanimentServices">
 								<option value="" disabled selected>Select...</option>
-								<option value="yes">Yes</option>
-								<option value="no">No</option>
-								<option value="unknown">Unknown</option>
+								<option value="Yes">Yes</option>
+								<option value="No">No</option>
+								<option value="Unknown">Unknown</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="linkedWithForensicAccompanimentServices">Linked With Forensic Accompaniment Services</label>
+							<select class="form-control" id="linkedWithForensicAccompanimentServices" name="linkedWithForensicAccompanimentServices">
+								<option value="" disabled selected>Select...</option>
+								<option value="Yes">Yes</option>
+								<option value="No">No</option>
+								<option value="Unknown">Unknown</option>
 							</select>
 						</div>
 						<div class="form-group">
@@ -242,7 +241,7 @@
 						</div>
 					</div>
 					<div class="col-md-12">
-						<button type="button" class="btn btn-default btn-block" onclick="formFunction()">Create Client</button>
+						<button type="button" class="btn btn-default btn-block" onclick="formFunction()">Submit</button>
 					</div>
 				</form>
 			</div>
@@ -256,9 +255,10 @@
 			for (var i = 0; i < form.elements.length; i++) {
 				dataString += form.elements[i].name + "=" + form.elements[i].value;
 				if(i!=form.elements.length-1){
-					dataString+="&"
+					dataString+="&";
 				}
-			}
+			}			
+			dataString += "&dateClientCreated=" + "<?php echo date('Y-m-d'); ?>" ;
 			
 			$.ajax({
 				url: '<?php echo site_url('request/submit'); ?>',

@@ -53,7 +53,7 @@
 		
 					<div class="col-md-4">
 						<div class="form-group">
-						    <label for="caseNumber">ID</label>
+						    <label for="caseNumber">Client Number</label>
 						    <input type="number" disabled class="form-control" id="caseNumber" name="caseNumber" value="<?php echo $data['caseNumber']?>">
 						</div>
 						<div class="form-group">
@@ -67,11 +67,16 @@
 					</div>
 					<div class="col-md-4">
 						<div class="form-group">
-						    <label for="relationalIndex">Relational Index</label>
-						    <input type="number" class="form-control" id="relationalIndex" name="relationalIndex" value="<?php echo $data['relationalIndex']?>">
+						    <label for="gender">Gender</label>
+						    <select class="form-control" id="gender" name = "gender">
+								<option value="<?php echo $data['gender']?>" selected><?php echo $data['gender']?></option>
+								<option value="Male">Male</option>
+								<option value="Female">Female</option>
+								<option value="Other">Other</option>
+						    </select>
 						</div>
 						<div class="form-group">
-						    <label for="age">Age</label>
+						    <label for="age">Age at time of Client Creation</label>
 						    <input type="number" class="form-control" id="age" name="age" value="<?php echo $data['age']?>">
 						</div>
 						<div class="form-group">
@@ -98,50 +103,41 @@
 					<div class="col-md-6">
 						<div class="form-group">
 						    <label for="referralReason">Referral Reason</label>
-						    <select class="form-control" id="referralReason" name = "referralReason">
-								<option value="<?php echo $data['referralReason']?>" selected><?php echo $data['referralReason']?></option>
-								<option value="csa">Childhood Sexual Assault</option>
-								<option value="sexualisedBehaviour">Sexualised Behaviour</option>
-								<option value="other">Other</option>
-						    </select>
+						    <input type="text" class="form-control" id="referralReason" name="referralReason" value="<?php echo $data['referralReason']?>">
 						</div>
 						<div class="form-group">
-						    <label for="CSAoutcome">CSA Outcome</label>
+						    <label for="CSAoutcome">Childhood Sexual Assault Outcome</label>
 							<select class="form-control" id="CSAoutcome" name="CSAoutcome">
 								<option value="<?php echo $data['CSAoutcome']?>" selected><?php echo $data['CSAoutcome']?></option>
-								<option value="credible">Credible</option>
-								<option value="notCredible">Not Credible</option>
-								<option value="inconclusive">Inconclusive</option>
+								<option value="Credible">Credible</option>
+								<option value="Not Credible">Not Credible</option>
+								<option value="Inconclusive">Inconclusive</option>
 						    </select>						
 						</div>
 						<div class="form-group">
 						    <label for="natureOfAbuse">Nature Of Abuse</label>
 						    <select class="form-control" id="natureOfAbuse" name="natureOfAbuse">
 								<option value="<?php echo $data['natureOfAbuse']?>" selected><?php echo $data['natureOfAbuse']?></option>
-								<option value="physical">Physical</option>
-								<option value="mental">Mental</option>
+								<option value="Physical">Physical</option>
+								<option value="Mental">Mental</option>
+								<option value="Sexual">Sexual</option>
+								<option value="Emotional">Emotional</option>
 						    </select>
 						</div>
 						<div class="form-group">
-						    <label for="continuousOrOnceOff">Continuous Or Once Off</label>
+						    <label for="continuousOrOnceOff">One or more Incidents of Abuse</label>
 						    <select class="form-control" id="continuousOrOnceOff" name="continuousOrOnceOff">
 								<option value="<?php echo $data['continuousOrOnceOff']?>" selected><?php echo $data['continuousOrOnceOff']?></option>
-								<option value="continuous">Continuous</option>
-								<option value="onceOff">Once Off</option>
-								<option value="other">Other</option>
+								<option value="One">One</option>
+								<option value="More">More</option>
 						    </select>
-						</div>
-						<div class="form-group">
-						    <label for="allegedAbuser">Alleged Abuser</label>
-						    <input type="text" class="form-control" id="allegedAbuser" name="allegedAbuser" value="<?php echo $data['allegedAbuser']?>">
 						</div>
 						<div class="form-group">
 						    <label for="oneOrMultipleAbusers">One Or Multiple Abusers</label>
 						    <select class="form-control" id="oneOrMultipleAbusers" name="oneOrMultipleAbusers">
 								<option value="<?php echo $data['oneOrMultipleAbusers']?>" selected><?php echo $data['oneOrMultipleAbusers']?></option>
-								<option value="one">One</option>
-								<option value="multiple">Multiple</option>
-								<option value="other">Other</option>
+								<option value="One">One</option>
+								<option value="Multiple">Multiple</option>
 						    </select>
 						</div>
 						<div class="form-group">
@@ -153,9 +149,8 @@
 						    <label for="peerToPeerOrAdult">Peer To Peer or Adult</label>
 						    <select class="form-control" id="peerToPeerOrAdult" name="peerToPeerOrAdult">
 								<option value="<?php echo $data['peerToPeerOrAdult']?>" selected><?php echo $data['peerToPeerOrAdult']?></option>
-								<option value="peerToPeer">Peer To Peer</option>
-								<option value="adult">Adult</option>
-								<option value="other">Other</option>
+								<option value="Peer To Peer">Peer To Peer</option>
+								<option value="Adult">Adult</option>
 						    </select>
 						</div>
 						<div class="form-group">
@@ -179,57 +174,59 @@
 					<div class="col-md-6">
 
 						<div class="form-group">
-							<label for="returned">Returned</label>
+							<label for="returned">Previous Client</label>
 							<select class="form-control" id="returned" name="returned">
 								<option value="<?php echo $data['returned']?>" selected><?php echo $data['returned']?></option>
-								<option value=1>Yes</option>
-								<option value=0>No</option>
+								<option value="Yes">Yes</option>
+								<option value="No">No</option>
 							</select>
 						</div>
 						<div class="form-group">
 							<label for="childInCare">Child In Care</label>
 							<select class="form-control" id="childInCare" name="childInCare">
 								<option value="<?php echo $data['childInCare']?>" selected><?php echo $data['childInCare']?></option>
-								<option value="yes">Yes</option>
-								<option value="no">No</option>
-								<option value="other">Other</option>
+								<option value="Yes">Yes</option>
+								<option value="No">No</option>
 							</select>
 						</div>
 						<div class="form-group">
-						    <label for="adviceAppointmentReason">Advice Appointment Reason</label>
-						    <textarea class="form-control" id="adviceAppointmentReason" name="adviceAppointmentReason" rows="3"><?php echo $data['adviceAppointmentReason']?>
-						    </textarea>
-						</div>
-						<div class="form-group">
-							<label for="professionalsForAdviceAppointment">Professionals For Advice Appointment</label>
-							<select class="form-control" id="professionalsForAdviceAppointment" name="professionalsForAdviceAppointment">
-								<option value="<?php echo $data['professionalsForAdviceAppointment']?>" selected><?php echo $data['professionalsForAdviceAppointment']?></option>
-								<option value="yes">Yes</option>
-								<option value="no">No</option>
-								<option value="unknown">Unknown</option>
+						    <label for="appointmentOffered">Appointment Offered</label>
+						    <select class="form-control" id="appointmentOffered" name="appointmentOffered">
+								  <option value="<?php echo $data['appointmentOffered']?>" selected><?php echo $data['appointmentOffered']?></option>
+								  <option value="Advice appointment">Advice appointment</option>
+								  <option value="Therapy appointment">Therapy appointment</option>
+								  <option value="Other">Other</option>
 							</select>
 						</div>
 						<div class="form-group">
-						    <label for="otherTraumaOrIncident">Other Trauma Or Incident</label>
-						    <textarea class="form-control" id="otherTraumaOrIncident" name="otherTraumaOrIncident" rows="3"><?php echo $data['otherTraumaOrIncident']?>
-						    </textarea>
+							<label for="professionalsForAdviceAppointment">Therapist Name</label>
+							<input type="text" class="form-control" id="professionalsForAdviceAppointment" name="professionalsForAdviceAppointment" value="<?php echo $data['professionalsForAdviceAppointment']?>">
 						</div>
 						<div class="form-group">
 							<label for="childProtectionReportsMade">Child Protection Reports Made</label>
 							<select class="form-control" id="childProtectionReportsMade" name="childProtectionReportsMade">
 								  <option value="<?php echo $data['childProtectionReportsMade']?>" selected><?php echo $data['childProtectionReportsMade']?></option>
-								  <option value="yes">Yes</option>
-								  <option value="no">No</option>
-								  <option value="unknown">Unknown</option>
+								  <option value="Yes">Yes</option>
+								  <option value="No">No</option>
+								  <option value="Unknown">Unknown</option>
 							</select>
 						</div>
 						<div class="form-group">
 							<label for="linkedWithCourtAccompanimentServices">Linked With Court Accompaniment Services</label>
 							<select class="form-control" id="linkedWithCourtAccompanimentServices" name="linkedWithCourtAccompanimentServices">
 								<option value="<?php echo $data['linkedWithCourtAccompanimentServices']?>" selected><?php echo $data['linkedWithCourtAccompanimentServices']?></option>
-								<option value="yes">Yes</option>
-								<option value="no">No</option>
-								<option value="unknown">Unknown</option>
+								<option value="Yes">Yes</option>
+								<option value="No">No</option>
+								<option value="Unknown">Unknown</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="linkedWithForensicAccompanimentServices">Linked With Forensic Accompaniment Services</label>
+							<select class="form-control" id="linkedWithForensicAccompanimentServices" name="linkedWithForensicAccompanimentServices">
+								<option value="<?php echo $data['linkedWithForensicAccompanimentServices']?>" selected><?php echo $data['linkedWithForensicAccompanimentServices']?></option>
+								<option value="Yes">Yes</option>
+								<option value="No">No</option>
+								<option value="Unknown">Unknown</option>
 							</select>
 						</div>
 						<div class="form-group">

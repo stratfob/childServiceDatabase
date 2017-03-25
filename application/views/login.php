@@ -13,7 +13,7 @@
 		Username: <input type="text" name="username"><br>
 		Password: <input type="password" name="password"><br>
 	</form> 
-	<button class="button buttonLog" onclick="formFunction()">Enter >></button>
+	<button class="button buttonLog" onclick="formFunction()">Enter</button>
 	</br>
 	<p id="result"></p>
 	
@@ -21,8 +21,7 @@
 		function formFunction() {
 			var form = document.getElementById("loginForm");
 			
-			var dataString = "username=" + form.elements[0].value + "&password="
-				+ form.elements[1].value;
+			var dataString = "username=" + form.elements[0].value + "&password="+ form.elements[1].value;
 
 			$.ajax({
 				url: '<?php echo site_url('login/validate'); ?>',

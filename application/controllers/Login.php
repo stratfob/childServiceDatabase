@@ -20,7 +20,31 @@ class Login extends CI_Controller {
 		{
 			$this->load->view('newUser.php');
 		}
+
+		public function changePassword(){
+			$this->load->view('changePassword.php');
+		}
 		
+		public function submitNewPassword(){
+			$username = $this->session->username;
+			$row = $this->model->getUserHash($username);
+			$hash = $row['password'];
+			$password = $_POST['password'];
+			$newPassword = $_POST['newPassword'];
+			if(password_verify($password, $hash)){
+				$newPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+				$array = [];
+				$array['username'] = $username;
+				$array['password'] = $newPassword;
+				
+				$this->model->changePassword($array);
+				echo "Password changed successfully";
+			}
+			else{
+				echo "Incorrect password";
+			}
+
+		}
 		
 		public function validate()
 		{

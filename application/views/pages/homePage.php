@@ -12,8 +12,9 @@
 		}
 		else{
 			echo "Logged in as " . $this->session->username;
+			echo "<br><a href=" . site_url('Login/changePassword') . ">Change password</a>";
 			if($this->session->username=="admin"){
-				echo "<br><a href=" . site_url('Login/newUser') . "> Create new user </a>";
+				echo "<br><a href=" . site_url('Login/newUser') . ">Create new user</a>";
 			}
 		}
 	?>

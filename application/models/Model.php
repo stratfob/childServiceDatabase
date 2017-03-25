@@ -89,6 +89,11 @@ class model extends CI_Model {
 			return "User created";
 		}
 
+		public function changePassword($array)
+		{
+			$this->db->replace('users', $array);
+		}
+
 		public function newClient($array)
 		{
 			if($this->db->get_where('client',array('caseNumber' => $array['caseNumber']))->num_rows()>=1){

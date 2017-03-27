@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title><?php echo $title ?></title>
-	<link rel = "stylesheet" type = "text/css" href = "<?php echo base_url(); ?>css/test.css">
+	<title>Search CARI</title>
+	<link rel = "stylesheet" type = "text/css" href = "<?php echo base_url(); ?>css/homecss.css">
 	<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 	<script type="text/javascript">google.load("jquery", "1.3.2");</script>
 	
 </head>
 <body>
-
+	
 	<?php  
 		if($this->session->logged_in == false){
 			redirect(site_url('Login/index'));
@@ -17,109 +17,97 @@
 			echo "Logged in as " . $this->session->username;
 		}
 	?>
-	<a href= "<?php echo site_url('pages/logout'); ?>"> Log Out </a>
-	<h1>Home</h1>
-	<p>Create new client: 
-	<a href = "<?php echo site_url('newClient'); ?>"> New </a>
-	</p>
-	<p>Go to toFrom page: 
-	<a href = "<?php echo site_url('toFrom'); ?>"> toFrom </a>
-	</p>
+	<div id ="navigation">
+		<h1>Search Page</h1>
+		<a href= "<?php echo site_url('pages/logout'); ?>"> Log Out </a>
+		<p>
+		<a href= "<?php echo site_url('homePage'); ?>"> Home Page </a></p> 
+		<p><a href = "<?php echo site_url('newClient'); ?>"> New Client</a>
+		</p>
+		<p>
+		<a href= "<?php echo site_url('stats'); ?>"> Statistics </a></p>
+	</div>
 
-	<?php 
-	echo "All entries in table 'client': <br>";
-	foreach ($testData as $exampleClient): 
-        echo "ID: " . $exampleClient['caseNumber'] .  " Relational Index: " . $exampleClient['relationalIndex'] . " First Name: " . $exampleClient['firstName'] . " Last Name: " 
-			. $exampleClient['lastName'] . " Age: " . $exampleClient['age'] . " Referrer Name: " . $exampleClient['referrerName'] . " Referrer Agency: " . $exampleClient['referrerAgency'] 
-			. " Father Name: " . $exampleClient['fatherName']. " Mother Name: " . $exampleClient['motherName'] . " Referral Reason: " . $exampleClient['referralReason'] 
-			." CSA Outcome: " . $exampleClient['CSAoutcome'] ." Nature Of Abuse: " . $exampleClient['natureOfAbuse'] ." Continuous or Once Off: " . $exampleClient['continuousOrOnceOff'] 
-			." Alleged Abuser: " . $exampleClient['allegedAbuser'] ." One or Multiple Abusers : " . $exampleClient['oneOrMultipleAbusers'] ." Abuser relation To Victim : " 
-			. $exampleClient['abuserRelationToVictim']." Peer To Peer or Adult : " . $exampleClient['peerToPeerOrAdult'] ." Location: " . $exampleClient['location']
-			." Waiting List Start Date: " . $exampleClient['waitingListStartDate']." Therapy Start Date: " . $exampleClient['therapyStartDate']." Returned: " . $exampleClient['returned'].
-			" Child In Care: " . $exampleClient['childInCare']. " Advice Appointment Reason: " . $exampleClient['adviceAppointmentReason']  . " Professionals For Advice Appointment: " 
-			. $exampleClient['professionalsForAdviceAppointment'] . " Other Trauma Or Incident: " . $exampleClient['otherTraumaOrIncident'] . " Child Protection Reports Made: " . $exampleClient['childProtectionReportsMade']
-			. " Linked With Court Accompaniment Services: " . $exampleClient['linkedWithCourtAccompanimentServices'] . " Date File Shredded: " . $exampleClient['dateFileShredded']
-			. " Other Comment: " . $exampleClient['otherComment']. "<br>"; 
-	endforeach;
 	
-	?>
 	
 	<form id="testForm">
-		ID: <input type="text" name="caseNumber"><br>
-		First Name: <input type="text" name="firstName"><br>
-		Last Name: <input type="text" name="lastName"><br>
-		Relational Index: <input type="text" name="relationalIndex"><br>
-		Age: <input type="text" name="age"><br>
-		Referrer Name: <input type="text" name="referrerName"><br>
-		Referrer Agency: <input type="text" name="referrerAgency"><br>
-		Father Name: <input type="text" name="fatherName"><br>
-		Mother Name: <input type="text" name="motherName"><br>
-		Referral reason: <select name="referralReason">
-		  <option value="" disabled selected>Select...</option>
-		  <option value="csa">Childhood Sexual Assault</option>
-		  <option value="sexualisedBehaviour">Sexualised Behaviour</option>
-		  <option value="other">Other</option>
-		</select><br>
-		Outcome: <select name = "CSAoutcome">
-		  <option value="" disabled selected>Select...</option>
-		  <option value="credible">Credible</option>
-		  <option value="notCredible">Not Credible</option>
-		  <option value="inconclusive">Inconclusive</option>
-		</select><br>
-		Nature Of Abuse: 
-		<select name="natureOfAbuse">
-		  <option value="" disabled selected>Select...</option>
-		  <option value="physical">Physical</option>
-		  <option value="mental">Mental</option>
-		</select><br>
-		Continuous Or Once Off: 
-		<select name="continuousOrOnceOff">
-		  <option value="" disabled selected>Select...</option>
-		  <option value="continuous">Continuous</option>
-		  <option value="onceOff">Once Off</option>
-		  <option value="other">Other</option>
-		</select><br>
-		Alleged Abuser: <input type="text" name="allegedAbuser"><br>
-		One or Multiple Abusers: 
-		<select name="oneOrMultipleAbusers">
-		  <option value="" disabled selected>Select...</option>
-		  <option value="one">One</option>
-		  <option value="multiple">Multiple</option>
-		  <option value="other">Other</option>
-		</select><br>
-		Abuser Relation To Victim: <input type="text" name="abuserRelationToVictim"><br>
-		Peer To Peer Or Adult: 
-		<select name="peerToPeerOrAdult">
-		  <option value="" disabled selected>Select...</option>
-		  <option value="peerToPeer">Peer To Peer</option>
-		  <option value="adult">Adult</option>
-		  <option value="other">Other</option>
-		</select><br>
-		Location: <input type="text" name="location"><br>
-		Waiting List Start Date: <input type="text" name="waitingListStartDate"><br>
-		Therapy Start Date: <input type="text" name="therapyStartDate"><br>
-		Returned: 
-		<select name="returned">
-		  <option value="" disabled selected>Select...</option>
-		  <option value=1>Yes</option>
-		  <option value=0>No</option>
-		</select><br>
-		Child in Care: 
-		<select name="childInCare">
-		  <option value="" disabled selected>Select...</option>
-		  <option value="yes">Yes</option>
-		  <option value="no">No</option>
-		  <option value="other">Other</option>
-		</select><br>
-		Advice Appointment Reason: <input type="text" name="adviceAppointmentReason"><br>
-		Professionals For Advice Appointment: 
-		<select name="professionalsForAdviceAppointment">
-		  <option value="" disabled selected>Select...</option>
-		  <option value="yes">Yes</option>
-		  <option value="no">No</option>
-		  <option value="unknown">Unknown</option>
-		</select><br>
-		Other Trauma Or Incident: <input type="text" name="otherTraumaOrIncident"><br>
+		<div class= "container">
+			<div id="person">
+				ID: <input type="text" name="caseNumber"><br>
+				First Name: <input type="text" name="firstName"><br>
+				Last Name: <input type="text" name="lastName"><br>
+				Relational Index: <input type="text" name="relationalIndex"><br>
+				Age: <input type="text" name="age"><br>
+				Referrer Name: <input type="text" name="referrerName"><br>
+				Referrer Agency: <input type="text" name="referrerAgency"><br>
+				Father Name: <input type="text" name="fatherName"><br>
+				Mother Name: <input type="text" name="motherName"><br>
+				
+			</div>
+			<div id="case">
+				Referral reason: <select name="referralReason">
+			<option value="" disabled selected>Select...</option>
+			<option value="csa">Childhood Sexual Assault</option>
+			<option value="sexualisedBehaviour">Sexualised Behaviour</option>
+			<option value="other">Other</option>
+			</select><br>
+				CSA outcome: <select name = "CSAoutcome">
+			<option value="" disabled selected>Select...</option>
+			<option value="credible">Credible</option>
+			<option value="notCredible">Not Credible</option>
+			<option value="inconclusive">Inconclusive</option>
+			</select><br>
+				Nature Of Abuse: <select name="natureOfAbuse">
+			<option value="" disabled selected>Select...</option>
+			<option value="physical">Physical</option>
+			<option value="mental">Mental</option>
+			</select><br>
+				Continuous Or Once Off: <select name="continuousOrOnceOff">
+			<option value="" disabled selected>Select...</option>
+			<option value="continuous">Continuous</option>
+			<option value="onceOff">Once Off</option>
+			<option value="other">Other</option>
+			</select><br>
+				Alleged Abuser: <input type="text" name="allegedAbuser"><br>
+				One or Multiple Abusers: <select name="oneOrMultipleAbusers">
+			<option value="" disabled selected>Select...</option>
+			<option value="one">One</option>
+			<option value="multiple">Multiple</option>
+			<option value="other">Other</option>
+			</select><br>
+				Abuser Relation To Victim: <input type="text" name="abuserRelationToVictim"><br>
+				Peer To Peer Or Adult: <select name="peerToPeerOrAdult">
+			<option value="" disabled selected>Select...</option>
+			<option value="peerToPeer">Peer To Peer</option>
+			<option value="adult">Adult</option>
+			<option value="other">Other</option>
+			</select><br>
+				Location: <input type="text" name="location"><br>
+				
+			</div>
+			<div id="therapy">
+				Waiting List Start Date: <input type="text" name="waitingListStartDate"><br>
+				Therapy Start Date: <input type="text" name="therapyStartDate"><br>
+				Returned: <select name="returned">
+			<option value="" disabled selected>Select...</option>
+			<option value=1>Yes</option>
+			<option value=0>No</option>
+			</select><br>
+				Child In Care: <select name="childInCare">
+			<option value="" disabled selected>Select...</option>
+			<option value="yes">Yes</option>
+			<option value="no">No</option>
+			<option value="other">Other</option>
+			</select><br>
+				Advice Appointment Reason: <input type="text" name="adviceAppointmentReason"><br>
+				Professionals For Advice Appointment: 
+			<select name="professionalsForAdviceAppointment">
+			<option value="" disabled selected>Select...</option>
+			<option value="yes">Yes</option>
+			<option value="no">No</option>
+			<option value="unknown">Unknown</option>
+			</select><br>
+			Other Trauma Or Incident: <input type="text" name="otherTraumaOrIncident"><br>
 		Child Protection Reports Made: 
 		<select name="childProtectionReportsMade">
 		  <option value="" disabled selected>Select...</option>
@@ -135,9 +123,11 @@
 		  <option value="unknown">Unknown</option>
 		</select><br>
 		Date File Shredded: <input type="text" name="dateFileShredded"><br>
-		Other Comment: <input type="text" name="otherComment"><br><br>
+		Other Comment: <input type="text" name="otherComment"><br>
+			</div>
+		</div>
 	</form> 
-	<button onclick="formFunction()">Try it</button>
+	<button class="button" onclick="formFunction()">Search >></button>
 	
 	<p id="result"></p>
 	
@@ -192,16 +182,31 @@ class model extends CI_Model {
 			return $query->result_array();
 		}
 		
+		public function getUserHash($username)
+		{
+			$query = $this->db->get_where('users', array('username' => $username));
+			return $query->row_array();
+		}
+		
+		public function doesUserExist($username)
+		{
+			$query = $this->db->get_where('users', array('username' => $username));
+			if($query->num_rows()>0){
+				return true;
+			}
+			else return false;
+		}
+		
 		public function between($array)
 		{
 			
 			if($array==NULL){
-				echo "Hello <br>";
+				//echo "Hello <br>";
 				return false;
 			}
 			else{
-				echo $array['minvalueAge'];
-				echo $array['maxvalueAge'];	
+				//echo $array['minvalueAge'];
+				//echo $array['maxvalueAge'];	
 				//echo $array['minvalueID'];
 				//echo $array['maxvalueID'];				
 			}
@@ -217,21 +222,6 @@ class model extends CI_Model {
 			//$query = $this->db->get_where('client',$whereID);
 			return $query->result_array();
 			
-		}
-		
-		public function getUserHash($username)
-		{
-			$query = $this->db->get_where('users', array('username' => $username));
-			return $query->row_array();
-		}
-		
-		public function doesUserExist($username)
-		{
-			$query = $this->db->get_where('users', array('username' => $username));
-			if($query->num_rows()>0){
-				return true;
-			}
-			else return false;
 		}
 		
 		public function newUser($array)
@@ -348,7 +338,7 @@ class Request extends CI_Controller {
 	}
 	
 	public function betweenPlease(){
-		echo "hello <br>";
+		//echo "hello <br>";
 		$minvalue = $_POST['minvalueAge'];
 		$maxvalue = $_POST['maxvalueAge'];
 		$age = $_POST['age'];
@@ -383,20 +373,16 @@ class Request extends CI_Controller {
 		else $array['maxvalueIndex'] = 10000000;
 		if($Index!=null) $array['relationalIndex'] = $Index;
 		$result = $this->model->between($array);	
+		$count = 0;
 		foreach ($result as $client): 
 			echo "ID: " . $client['caseNumber'] . " First Name: " . $client['firstName'] . " Last Name: " 	. $client['lastName'] . " Relational Index: " 
-			. $client['relationalIndex'] . " Age: " . $client['age'] . " Referrer Name: " . $client['referrerName'] . " Referrer Agency: " . $client['referrerAgency'] 
-			. " Father Name: " . $client['fatherName'] . " Mother Name: " . $client['motherName'] . " Referral Reason: " . $client['referralReason'] . " CSA outcome: " . $client['CSAoutcome']
-			." Nature Of Abuse: " . $client['natureOfAbuse'] ." Continuous Or Once Off: " . $client['continuousOrOnceOff'] ." Alleged Abuser: " . $client['allegedAbuser'] 
-			." One Or Multiple Abusers: " . $client['oneOrMultipleAbusers'] ." Abuser Relation To Victim: " . $client['abuserRelationToVictim'] ." Peer To Peer Or Adult: " 
-			. $client['peerToPeerOrAdult'] ." Location: " . $client['location'] ." Waiting List Start Date: " . $client['waitingListStartDate']." Therapy Start Date: " . $client['therapyStartDate']
-			." Returned: " . $client['returned']." Child In Care: " . $client['childInCare'] ." Advice Appointment Reason: " . $client['adviceAppointmentReason']." professionalsForAdviceAppointment: " 
-			. $client['professionalsForAdviceAppointment'] ." Other Trauma Or Incident: " . $client['otherTraumaOrIncident'] ." Child Protection Reports Made: " . $client['childProtectionReportsMade']
-			." Linked With Court Accompaniment Services: " . $client['linkedWithCourtAccompanimentServices'] ." Date File Shredded: " . $client['dateFileShredded']
-			." Other Comment: " . $client['otherComment']."<br>"; 
+			. $client['relationalIndex'] ."<br>"; 
+			$count += 1;
 		endforeach;
+		echo "There are " . $count . " Clients in this range. <br>";
 	}
 }
+
 ////////////////////////////////////////////////////////
 
 
@@ -428,6 +414,7 @@ class Request extends CI_Controller {
 	<p>Go to Search page: 
 	<a href = "<?php echo site_url('home'); ?>"> Search </a>
 	</p>
+	<p><a href= "<?php echo site_url('homePage'); ?>"> Home Page </a></p>
 	
 	
 	<?php 
@@ -497,3 +484,131 @@ class Request extends CI_Controller {
 	endforeach;
 	
 	?>
+	
+	
+////////////////////////////////////////////
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Login</title>
+	<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+	<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+	<link rel="stylesheet" type= "text/css" href = "<?php echo base_url(); ?>css/theme.css">
+	 <!-- Bootstrap core CSS -->
+    <link href="<?php echo base_url(); ?>dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="<?php echo base_url(); ?>dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+</head>
+<body>
+	<h1 class="text-center">Login</h1>
+	
+	<form id="loginForm">
+		Username: <input type="text" name="username"><br>
+		Password: <input type="password" name="password"><br>
+	</form> 
+	<button class="button buttonLog" onclick="formFunction()">Enter</button>
+	</br>
+	<p id="result"></p>
+	
+	<script>
+		function formFunction() {
+			var form = document.getElementById("loginForm");
+			
+			var dataString = "username=" + form.elements[0].value + "&password="+ form.elements[1].value;
+
+			$.ajax({
+				url: '<?php echo site_url('login/validate'); ?>',
+				type: 'POST',
+				data: dataString,
+				success: function(data) {
+					document.getElementById("result").innerHTML = data;
+					if(data=="Logging in..."){
+						document.location.href = '<?php echo site_url('HomePage'); ?>';
+					}
+				}
+			});
+		}
+	</script>
+</body>
+</html>
+
+
+/////////////////////////////////////////////////////
+<!DOCTYPE html>
+<head>
+	<title>CARI Database Home Page</title>
+	<link rel = "stylesheet" type = "text/css" href = "<?php echo base_url(); ?>css/theme.css">
+	 <!-- Bootstrap core CSS -->
+    <link href="<?php echo base_url(); ?>dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="<?php echo base_url(); ?>dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            
+            <p class="navbar-text">
+            	<?php  
+					if($this->session->logged_in == false){
+						redirect(site_url('Login/index'));
+					}
+					else{
+						echo "Logged in as " . $this->session->username . "";
+					}
+				?>
+            </p> 
+			<li><a href= "<?php echo site_url('Login/changePassword'); ?>">Change Password</a></p> </li>
+            <li><a href = "<?php echo site_url('newClient'); ?>">New Client</a></li>
+            <li><a href= "<?php echo site_url('pages/logout'); ?>"> Log Out </a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+	
+<h1 class="text-center">CARI Database Home Page</h1>
+<?php  
+		if($this->session->logged_in == false){
+			redirect(site_url('Login/index'));
+		}
+		else{
+			echo "Logged in as " . $this->session->username;
+			echo "<br><a href=" . site_url('Login/changePassword') . ">Change password</a>";
+			if($this->session->username=="admin"){
+				echo "<br><a href=" . site_url('Login/newUser') . ">Create new user</a>";
+			}
+		}
+	?>
+<div id="nav">
+	
+	<a href= "<?php echo site_url('pages/logout'); ?>" class="button buttonHome"> Log Out </a>
+	<a href= "<?php echo site_url('newClient'); ?>" class="button buttonHome"> New Client </a>
+	<a href= "<?php echo site_url('home'); ?>" class="button buttonHome"> Search Page </a>
+	<a href= "<?php echo site_url('stats'); ?>" class="button buttonHome"> Statistics </a>
+	<a href= "<?php echo site_url('toFrom'); ?>" class="button buttonHome"> Ranges </a>
+	
+</div>
+</body>
+

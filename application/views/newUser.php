@@ -52,6 +52,8 @@
 	<div class="container theme-showcase" role="main">
 		<div class="row">
 			<form id="newUserForm">		
+			<div class="col-md-4">
+			</div>
 					<div class="col-md-4">
 						<div class="form-group">
 						    <label for="username">User Name</label>

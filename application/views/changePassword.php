@@ -52,7 +52,9 @@
 	
 	<div class="container theme-showcase" role="main">
 		<div class="row">
-			<form id="form">		
+			<form id="form">	
+				<div class="col-md-4">
+				</div>			
 					<div class="col-md-4">
 						<div class="form-group">
 						    <label for="oldPassword">Old Password</label>

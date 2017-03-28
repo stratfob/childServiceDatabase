@@ -26,18 +26,19 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href= "<?php echo site_url('homePage'); ?>">Home</a></p> </li>
-            <li><a href = "<?php echo site_url('home'); ?>">Search</a></li>
-            <p class="navbar-text">
+		  <p class="navbar-text">
             	<?php  
 					if($this->session->logged_in == false){
 						redirect(site_url('Login/index'));
 					}
 					else{
-						echo "Logged in as " . $this->session->username . ":";
+						echo "Logged in as " . $this->session->username . "";
 					}
 				?>
             </p> 
+            <li><a href= "<?php echo site_url('homePage'); ?>">Home</a></p> </li>
+            <li><a href = "<?php echo site_url('home'); ?>">Search</a></li>
+            
             <li><a href= "<?php echo site_url('pages/logout'); ?>"> Log Out </a></li>
           </ul>
         </div><!--/.nav-collapse -->

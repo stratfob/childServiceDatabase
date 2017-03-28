@@ -36,11 +36,6 @@
 					
 				?>
             </p>
-			<li><a href= "<?php if($this->session->username=="admin"){
-									echo site_url('Login/newUser');
-								}; ?>">New User</a></p> </li>
-			<li><a href= "<?php echo site_url('Login/changePassword'); ?>">Change Password</a></p> </li>
-            <li><a href = "<?php echo site_url('newClient'); ?>">New Client</a></li>
             <li><a href= "<?php echo site_url('pages/logout'); ?>"> Log Out </a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -57,7 +52,10 @@
 		<div class="container">
 			<a class = "btn btn-primary btn-block" href= "<?php echo site_url('newClient'); ?>" > New Client </a>
 			<a class = "btn btn-primary btn-block" href= "<?php echo site_url('home'); ?>" > Search Page </a>
-			
+			<a class = "btn btn-primary btn-block" href= "<?php echo site_url('Login/changePassword'); ?>" > Change Password </a>
+			<a class = "btn btn-primary btn-block" href= "<?php if($this->session->username=="admin"){
+															echo site_url('Login/newUser');
+															}; ?>" > New User </a>
 		</div>
 	</div>
 </div>

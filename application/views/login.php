@@ -23,7 +23,9 @@
 	
 	<div class="container theme-showcase" role="main">
 		<div class="row">
-			<form id="loginForm">		
+			<form id="loginForm">	
+			<div class="col-md-4">
+			</div>
 					<div class="col-md-4">
 						<div class="form-group">
 						    <label for="username">User Name</label>
@@ -37,7 +39,10 @@
 					</div>
 			</form>	
 			
-			<p id="result"></p>			
+					
+		</div>
+		<div class="panel panel-default">
+			<div class="text-center" id = "result"></div>
 		</div>
 	</div> 
 	

@@ -26,6 +26,7 @@ class Request extends CI_Controller {
 		if($_POST['continuousOrOnceOff']!=null) $array['continuousOrOnceOff'] = $_POST['continuousOrOnceOff'];
 		if($_POST['oneOrMultipleAbusers']!=null) $array['oneOrMultipleAbusers'] = $_POST['oneOrMultipleAbusers'];
 		if($_POST['peerToPeerOrAdult']!=null) $array['peerToPeerOrAdult'] = $_POST['peerToPeerOrAdult'];
+		if($_POST['professionalsForAdviceAppointment']!=null) $array['professionalsForAdviceAppointment'] = $_POST['professionalsForAdviceAppointment'];
 		if($_POST['waitingListStartDate']!=null) $array['waitingListStartDate'] = $_POST['waitingListStartDate'];
 		if($_POST['therapyStartDate']!=null) $array['therapyStartDate'] = $_POST['therapyStartDate'];
 		if($_POST['returned']!=null) $array['returned'] = $_POST['returned'];

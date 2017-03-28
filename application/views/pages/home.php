@@ -170,6 +170,10 @@
 								<option value="Adult">Adult</option>
 						    </select>
 						</div>
+						<div class="form-group">
+						    <label for="professionalsForAdviceAppointment">Therapist Name</label>
+						    <input type="text" class="form-control" id="professionalsForAdviceAppointment" name="professionalsForAdviceAppointment" placeholder="Therapist Name">
+						</div>
 					</div>
 			
 					<div class="col-md-6">
@@ -280,7 +284,7 @@
 				data: dataString,
 				success: function(data) {
 					document.getElementById("result").innerHTML = data;
-					window.scrollTo(0, 2000);
+					window.scrollTo(0, 1000);
 				}
 			});
 		}

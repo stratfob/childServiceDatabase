@@ -28,21 +28,21 @@
 			</div>
 					<div class="col-md-4">
 						<div class="form-group">
-						    <label for="username">User Name</label>
-						    <input type="text" class="form-control" id="username" name="username" placeholder="username">
+						    <label for="username">Username</label>
+						    <input type="text" class="form-control" id="username" name="username" placeholder="Username">
 						</div>
 						<div class="form-group">
 						    <label for="password">Password</label>
-						    <input type="password" class="form-control" id="password" name="password" placeholder="password">	
+						    <input type="password" class="form-control" id="password" name="password" placeholder="Password">	
 						</div>
-						<button type="button" class="button buttonLog" onclick="formFunction()">Login</button>	
+						<button type="button" class = "btn btn-default btn-lg" onclick="formFunction()">Login</button>	
 					</div>
 			</form>	
 			
 					
 		</div>
-		<div class="panel panel-default">
-			<div class="text-center" id = "result"></div>
+			<br><br>
+			<div class="alert alert-danger" id = "result"></div>
 		</div>
 	</div> 
 	
@@ -50,6 +50,7 @@
 	
 	
 	<script>
+		$(".alert").hide();
 		function formFunction() {
 			var form = document.getElementById("loginForm");
 			
@@ -63,6 +64,9 @@
 					document.getElementById("result").innerHTML = data;
 					if(data=="Logging in..."){
 						document.location.href = '<?php echo site_url('HomePage'); ?>';
+					}
+					else{
+						$(".alert").show();
 					}
 				}
 			});

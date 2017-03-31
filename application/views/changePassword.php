@@ -57,29 +57,33 @@
 				</div>			
 					<div class="col-md-4">
 						<div class="form-group">
-						    <label for="oldPassword">Old Password</label>
-						    <input type="password" class="form-control" id="oldPassword" name="oldPassword" placeholder="oldPassword">
+						    <label for="oldPassword">Current Password</label>
+						    <input type="password" class="form-control" id="oldPassword" name="oldPassword" placeholder="Current Password">
 						</div>
 						<div class="form-group">
 						    <label for="newPassword">New Password</label>
-						    <input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="newPassword">	
+						    <input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="New Password">	
 						</div>
 						<div class="form-group">
 						    <label for="confirmPassword">Confirm Password</label>
-						    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="confirmPassword">	
+						    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="New Password">	
 						</div>
-						<button type="button" class="button buttonLog" onclick="formFunction()">Login</button>	
+						<button type="button" class = "btn btn-default btn-lg" onclick="formFunction()">Submit</button>	
 					</div>
 			</form>	
 			
-			<p id="result"></p>			
+			</div>
+				<br><br>
+				<div class="alert alert-danger" id = "badresult"></div>
+				<div class="alert alert-success" id = "goodresult"></div>
+			</div>		
 		</div>
 	</div> 
 	
 
 	
 	<script>
-
+		$(".alert").hide();
 		function compareNewPasswords(){
 			var form = document.getElementById("form");
 			if(form.elements[1].value==form.elements[2].value){
@@ -92,10 +96,14 @@
 			var form = document.getElementById("form");
 
 			if(!compareNewPasswords()){
-				document.getElementById("result").innerHTML = "New passwords do not match";
+				$('#goodresult').hide();
+				$('#badresult').show();
+				document.getElementById("badresult").innerHTML = "New passwords do not match";
 			}
 			else if(form.elements[1].value==""){
-				document.getElementById("result").innerHTML = "New password cannot be empty";
+				$('#goodresult').hide();
+				$('#badresult').show();
+				document.getElementById("badresult").innerHTML = "New password cannot be empty";
 			}
 			else{
 				var dataString = "password="+ form.elements[0].value + "&newPassword=" + form.elements[1].value;
@@ -105,7 +113,18 @@
 					type: 'POST',
 					data: dataString,
 					success: function(data) {
-						document.getElementById("result").innerHTML = data;
+						if(data=="Incorrect password"){
+							$('#goodresult').hide();
+							$('#badresult').show();
+							document.getElementById("badresult").innerHTML = data;
+						}
+						else{
+							$('#badresult').hide();
+							$('#goodresult').show();
+							document.getElementById("goodresult").innerHTML = data;
+						}
+						
+						
 					}
 				});
 			}

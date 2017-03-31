@@ -57,22 +57,27 @@
 					<div class="col-md-4">
 						<div class="form-group">
 						    <label for="username">User Name</label>
-						    <input type="text" class="form-control" id="username" name="username" placeholder="username">
+						    <input type="text" class="form-control" id="username" name="username" placeholder="Username">
 						</div>
 						<div class="form-group">
 						    <label for="password">Password</label>
-						    <input type="password" class="form-control" id="password" name="password" placeholder="password">	
+						    <input type="password" class="form-control" id="password" name="password" placeholder="Password">	
 						</div>
-						<button type="button" class="button buttonLog" onclick="formFunction()">Login</button>	
+						<button type="button" class = "btn btn-default btn-lg" onclick="formFunction()">Submit</button>	
 					</div>
 			</form>	
 			
-			<p id="result"></p>			
+			</div>
+				<br><br>
+				<div class="alert alert-danger" id = "badresult"></div>
+				<div class="alert alert-success" id = "goodresult"></div>
+			</div>		
 		</div>
 	</div> 
 	
 	
 	<script>
+		$(".alert").hide();
 		function formFunction() {
 			var form = document.getElementById("newUserForm");
 			
@@ -84,7 +89,16 @@
 				type: 'POST',
 				data: dataString,
 				success: function(data) {
-					document.getElementById("result").innerHTML = data;
+					if(data=="User created"){
+						$('#badresult').hide();
+						$('#goodresult').show();
+						document.getElementById("goodresult").innerHTML = data;
+					}
+					else{
+						$('#badresult').show();
+						$('#goodresult').hide();
+						document.getElementById("badresult").innerHTML = data;
+					}
 				}
 			});
 		}
